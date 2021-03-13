@@ -6,6 +6,16 @@ We will configure Cassandra's built in ` metrics-reporter ` to extract and publi
 metrics-reporter.yaml
 ```
 Download this configuration file and place it in the same folder where we have our ` cassandra.yaml ` file. <br>
-We will copy this file to all of our Cassandra nodes. <br>
+We will copy this file to all of our Cassandra nodes. <br><br><br>
 
+
+Add following 1 line code to ` cassandra-env.sh ` file (as a last line of the file). <br>
+` cassandra-env.sh ` file is in the same folder where we have our ` cassandra.yaml ` file. <br>
+
+```
+JVM_OPTS="$JVM_OPTS -Dcassandra.metricsReporterConfigFile=metrics-reporter.yaml"
+```
+
+<br><br>
 ### This configuration change is required on each of our Cassandra nodes.
+
