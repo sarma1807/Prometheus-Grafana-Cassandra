@@ -11,7 +11,7 @@
 ```
 <br><br><br>
 
-##### Apache Cassandra
+### Apache Cassandra
 3 node Cassandra cluster ` cluster_name: 'id_cluster' ` version : ` Apache Cassandra 4.0-beta4 ` running on following servers :
 ```
 192.168.1.151      eternal1      eternal1.OracleByExample.com
@@ -23,7 +23,7 @@ We will also configure ` Prometheus node_exporter ` on each of our Cassandra nod
 <br><br><br>
 
 
-##### Prometheus & Grafana
+### Prometheus & Grafana
 We will configure and run ` Prometheus & Grafana ` on following server :
 ```
 192.168.1.191      PromGraf      PromGraf.OracleByExample.com
@@ -33,7 +33,7 @@ We will configure and run ` Prometheus & Grafana ` on following server :
 <br><br><br>
 
 
-##### Prometheus Alertmanager
+### Prometheus Alertmanager
 In future, we should implement ` Alertmanager `.
 <br><br><br>
 
