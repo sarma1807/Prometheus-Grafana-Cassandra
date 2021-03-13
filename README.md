@@ -19,7 +19,7 @@
 ```
 We will configure Cassandra's built in ` metrics-reporter ` to extract and publish metrics to Prometheus. <br>
 We will also configure ` Prometheus node_exporter ` on each of our Cassandra nodes to extract and publish metrics to Prometheus.
-<br><br>
+<br><br><br>
 
 
 ##### Prometheus & Grafana
@@ -27,5 +27,12 @@ We will configure and run ` Prometheus & Grafana ` on following server :
 ```
 192.168.1.191      PromGraf      PromGraf.OracleByExample.com
 ```
-Prometheus will gather and organize all collected metrics into its internal time-series database. <br>
-Grafana will consume the metrics from Prometheus and display them in a dashboard. <br>
+` Prometheus ` will gather and organize all collected metrics into its internal time-series database. <br>
+` Grafana ` will consume the metrics from Prometheus and display them in a nice dashboard. <br>
+<br><br><br>
+
+
+##### Prometheus Alertmanager
+In future, we should implement ` Alertmanager `.
+<br><br>
+
