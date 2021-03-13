@@ -31,6 +31,21 @@ node_exporter, version 1.1.2 (branch: HEAD, revision: b597c1244d7bef49e6f3359c87
 $
 ```
 
+<br><br><br>
+
+```
+node_exporter_runtime.sh
+```
+Download this shell script and place it in ` ~/node_exporter-1.1.2.linux-amd64/ ` folder. <br><br><br>
+
+Change permissions for shell script :
+```
+chmod u+rwx ~/node_exporter-1.1.2.linux-amd64/node_exporter_runtime.sh
+```
+
+##### Note that this shell script contains an entry for starting ` node_exporter ` on ` port 9100 `.
+
+
 <br>
 
 ### This configuration is required on each of our Cassandra nodes.
