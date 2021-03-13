@@ -43,7 +43,7 @@ Change permissions for shell script :
 chmod u+rwx ~/node_exporter-1.1.2.linux-amd64/node_exporter_runtime.sh
 ```
 
-##### Note that this shell script contains an entry for starting ` node_exporter ` on ` port 9100 `.
+##### Note that this shell script contains an entry for starting ` node_exporter ` on ` port 9100 `
 
 
 <br><br>
