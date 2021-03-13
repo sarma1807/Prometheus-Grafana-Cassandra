@@ -16,6 +16,8 @@ Add following 1 line code to ` cassandra-env.sh ` file (as a last line of the fi
 JVM_OPTS="$JVM_OPTS -Dcassandra.metricsReporterConfigFile=metrics-reporter.yaml"
 ```
 
-<br><br>
+<br>
 ### This configuration change is required on each of our Cassandra nodes.
+<br><br>
+### These changes will become active after the Cassandra restart.
 
