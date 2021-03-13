@@ -17,7 +17,10 @@ JVM_OPTS="$JVM_OPTS -Dcassandra.metricsReporterConfigFile=metrics-reporter.yaml"
 ```
 
 <br>
+
 ### This configuration change is required on each of our Cassandra nodes.
-<br><br>
+
+<br>
+
 ### These changes will become active after the Cassandra restart.
 
