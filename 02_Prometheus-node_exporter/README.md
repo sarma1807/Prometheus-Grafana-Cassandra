@@ -46,6 +46,21 @@ chmod u+rwx ~/node_exporter-1.1.2.linux-amd64/node_exporter_runtime.sh
 ##### Note that this shell script contains an entry for starting ` node_exporter ` on ` port 9100 `.
 
 
+<br><br>
+Add entry to crontab ... to automatically start ` node_exporter ` along with server start :
+```
+$ crontab -e
+
+##### add following line
+@reboot	sh ~/node_exporter-1.1.2.linux-amd64/node_exporter_runtime.sh
+```
+
+<br><br><br>
+After server restart ` node_exporter ` webpage can be accessed at :
+```
+http://<SERVER_IP_OR_HOSTNAME>:9100/metrics
+```
+
 <br>
 
 ### This configuration is required on each of our Cassandra nodes.
