@@ -1,0 +1,63 @@
+# Apache Cassandra's metrics-reporter config file
+
+# metrics will be stored in : /tmp/oramad_cass_metrics_reporter_0.txt
+# metrics will be collected every 15 minutes - frequent collection will put extra load on Cassandra and has not proven to be useful.
+
+console:
+  -
+    outfile: '/tmp/oramad_cass_metrics_reporter_0.txt'
+    period: 900
+    timeunit: 'SECONDS'
+    predicate:
+      color: "white"
+      useQualifiedName: true
+      patterns:
+        - "^org.apache.cassandra.metrics.CommitLog.CompletedTasks+"
+        - "^org.apache.cassandra.metrics.CommitLog.PendingTasks+"
+        - "^org.apache.cassandra.metrics.CommitLog.TotalCommitLogSize+"
+        - "^org.apache.cassandra.metrics.Table.AllMemtablesHeapSize.all+"
+        - "^org.apache.cassandra.metrics.Table.MemtableSwitchCount.all+"
+        - "^org.apache.cassandra.metrics.Table.TotalDiskSpaceUsed.+"
+        - "^org.apache.cassandra.metrics.Table.TombstoneScannedHistogram.+"
+        - "^org.apache.cassandra.metrics.Table.ReadRepairRequests.+"
+        - "^org.apache.cassandra.metrics.keyspace.TotalDiskSpaceUsed.+"
+        - "^org.apache.cassandra.metrics.ThreadPools.ActiveTasks.transport.Native-Transport-Requests+"
+        - "^org.apache.cassandra.metrics.CQL.PreparedStatementsCount+"
+        - "^org.apache.cassandra.metrics.CQL.PreparedStatementsExecuted+"
+        - "^org.apache.cassandra.metrics.CQL.RegularStatementsExecuted+"
+        - "^org.apache.cassandra.metrics.Storage.Exceptions+"
+        - "^org.apache.cassandra.metrics.Storage.Load+"
+        - "^org.apache.cassandra.metrics.Storage.TotalHints+"
+        - "^org.apache.cassandra.metrics.Storage.TotalHintsInProgress+"
+        - "^org.apache.cassandra.metrics.Client.connectedNativeClients+"
+        - "^org.apache.cassandra.metrics.Client.AuthFailure+"
+        - "^org.apache.cassandra.metrics.Client.AuthSuccess+"
+        - "^org.apache.cassandra.metrics.ClientRequest.Timeouts.CASRead+"
+        - "^org.apache.cassandra.metrics.ClientRequest.Timeouts.CASWrite+"
+        - "^org.apache.cassandra.metrics.ClientRequest.Timeouts.RangeSlice+"
+        - "^org.apache.cassandra.metrics.ClientRequest.Timeouts.Read+"
+        - "^org.apache.cassandra.metrics.ClientRequest.Timeouts.Read-ALL+"
+        - "^org.apache.cassandra.metrics.ClientRequest.Timeouts.Read-ANY+"
+        - "^org.apache.cassandra.metrics.ClientRequest.Timeouts.Read-EACH_QUORUM+"
+        - "^org.apache.cassandra.metrics.ClientRequest.Timeouts.Read-LOCAL_ONE+"
+        - "^org.apache.cassandra.metrics.ClientRequest.Timeouts.Read-LOCAL_QUORUM+"
+        - "^org.apache.cassandra.metrics.ClientRequest.Timeouts.Read-LOCAL_SERIAL+"
+        - "^org.apache.cassandra.metrics.ClientRequest.Timeouts.Read-ONE+"
+        - "^org.apache.cassandra.metrics.ClientRequest.Timeouts.Read-QUORUM+"
+        - "^org.apache.cassandra.metrics.ClientRequest.Timeouts.Read-SERIAL+"
+        - "^org.apache.cassandra.metrics.ClientRequest.Timeouts.Read-THREE+"
+        - "^org.apache.cassandra.metrics.ClientRequest.Timeouts.Read-TWO+"
+        - "^org.apache.cassandra.metrics.ClientRequest.Timeouts.Write+"
+        - "^org.apache.cassandra.metrics.ClientRequest.Timeouts.Write-ALL+"
+        - "^org.apache.cassandra.metrics.ClientRequest.Timeouts.Write-ANY+"
+        - "^org.apache.cassandra.metrics.ClientRequest.Timeouts.Write-EACH_QUORUM+"
+        - "^org.apache.cassandra.metrics.ClientRequest.Timeouts.Write-LOCAL_ONE+"
+        - "^org.apache.cassandra.metrics.ClientRequest.Timeouts.Write-LOCAL_QUORUM+"
+        - "^org.apache.cassandra.metrics.ClientRequest.Timeouts.Write-LOCAL_SERIAL+"
+        - "^org.apache.cassandra.metrics.ClientRequest.Timeouts.Write-ONE+"
+        - "^org.apache.cassandra.metrics.ClientRequest.Timeouts.Write-QUORUM+"
+        - "^org.apache.cassandra.metrics.ClientRequest.Timeouts.Write-SERIAL+"
+        - "^org.apache.cassandra.metrics.ClientRequest.Timeouts.Write-THREE+"
+        - "^org.apache.cassandra.metrics.ClientRequest.Timeouts.Write-TWO+"
+
+
