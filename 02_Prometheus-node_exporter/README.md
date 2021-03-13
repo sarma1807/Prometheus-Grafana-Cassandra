@@ -61,7 +61,9 @@ After server restart ` node_exporter ` webpage can be accessed at :
 http://<SERVER_IP_OR_HOSTNAME>:9100/metrics
 ```
 
-<br>
+##### Sample metrics file ` eternal2_9100-SAMPLE.txt `
+
+<br><br>
 
 ### This configuration is required on each of our Cassandra nodes.
 
