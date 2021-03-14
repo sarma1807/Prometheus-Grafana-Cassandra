@@ -44,6 +44,10 @@ $ crontab -e
 @reboot	~/grafana-current/bin/grafana-server -homepath ~/grafana-current -pidfile ~/grafana-current/logs/grafana-server.pid &
 ```
 
+<br>
+
+### This configuration is required on only one server which will run Grafana server.
+
 <br><br><br>
 
 After server restart ` Grafana ` webpage can be accessed at :
@@ -94,12 +98,6 @@ Click on "Import" button.
 <br>
 
 ### Enjoy the Cassandra Dashboard developed by ORAMAD
-
-
-<br><br><br>
-
-
-### This configuration is required on only one server which will run Grafana server.
 
 <br>
 
