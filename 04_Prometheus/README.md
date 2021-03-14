@@ -65,10 +65,9 @@ Webpage for status of ` Prometheus Targets ` can be accessed at :
 http://<SERVER_IP_OR_HOSTNAME>:9090/targets
 ```
 
-
-
 <br><br>
 
 ### This configuration is required on only one server which will run Prometheus server.
 
 <br>
+
