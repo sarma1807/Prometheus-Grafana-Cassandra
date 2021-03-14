@@ -99,5 +99,9 @@ Click on "Import" button.
 
 ### Enjoy the Cassandra Dashboard developed by ORAMAD
 
-<br>
+```
+http://<GRAFANA_IP_OR_HOSTNAME>:3000/d/reQeDG2Gk/
+```
+
+<br><br><br>
 
