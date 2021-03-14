@@ -1,5 +1,7 @@
 # Prometheus
 
+` ASSUMPTION : ~ = /apps/opt/promgraf `
+
 We will install and configure ` Prometheus ` only on one server.
 
 ```
@@ -34,3 +36,32 @@ $ vi ~/prometheus-current/prometheus.yml
     - targets: ['192.168.1.151:9100', '192.168.1.152:9100', '192.168.1.153:9100']
 # add your Cassandra servers to this targets list
 ```
+
+<br><br>
+Add entry to crontab ... to automatically start ` Prometheus ` along with server start :
+```
+$ crontab -e
+
+##### add following line
+@reboot	cd ~/prometheus-current;~/prometheus-current/prometheus --config.file='/apps/opt/promgraf/prometheus-current/prometheus.yml' &
+```
+
+<br><br><br>
+After server restart ` Prometheus ` webpage can be accessed at :
+```
+http://<SERVER_IP_OR_HOSTNAME>:9090/
+```
+
+<br>
+Webpage for status of ` Prometheus Targets ` can be accessed at :
+```
+http://<SERVER_IP_OR_HOSTNAME>:9090/targets
+```
+
+
+
+<br><br>
+
+### This configuration is required on only one server which will run Prometheus server.
+
+<br>
