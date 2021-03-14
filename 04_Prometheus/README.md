@@ -16,13 +16,11 @@ ln -s ~/prometheus-2.25.1.linux-amd64 ~/prometheus-current
 ```
 
 ` Prometheus ` was extracted to ` ~/prometheus-2.25.1.linux-amd64 `
-<br><br><br>
-
-```
 
 <br><br><br>
 
 # configure Prometheus
+
 ```
 $ vi ~/prometheus-current/prometheus.yml
 
