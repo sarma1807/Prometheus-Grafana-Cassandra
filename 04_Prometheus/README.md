@@ -19,7 +19,7 @@ ln -s ~/prometheus-2.25.1.linux-amd64 ~/prometheus-current
 
 <br><br><br>
 
-# configure Prometheus
+### Configure Prometheus
 
 ```
 $ vi ~/prometheus-current/prometheus.yml
