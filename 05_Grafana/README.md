@@ -1,5 +1,11 @@
 # Grafana
 
+```
+https://grafana.com/grafana/dashboards/14070
+```
+
+<br>
+
 ` ASSUMPTION : ~ = /apps/opt/promgraf `
 
 We will install and configure ` Grafana ` only on one server.
