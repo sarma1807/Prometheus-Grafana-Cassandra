@@ -49,7 +49,7 @@ $ crontab -e
 After server restart ` Grafana ` webpage can be accessed at :
 
 ```
-http://<SERVER_IP_OR_HOSTNAME>:3000/
+http://<GRAFANA_IP_OR_HOSTNAME>:3000/
 
 
 Default Username / Password :
@@ -62,44 +62,41 @@ Password : admin
 After logging into ` Grafana `, we can create our ` Prometheus ` as data source :
 
 ```
-http://<SERVER_IP_OR_HOSTNAME>:3000/datasources/new
+http://<GRAFANA_IP_OR_HOSTNAME>:3000/datasources/edit/1/
 
-Find "Prometheus" from the list of Data Sources and click on "Select" button.
+*** Note that we are editing the default "Prometheus" Data Source ***
 
 Use following options to configure this data source :
 
-Name     : myPrometheus
+Name     : Prometheus
 Default  : True
 HTTP URL : http://<PROMETHEUS_IP_OR_HOSTNAME>:9090/
 
 Click on "Save & Test" button at the end of page.
 
-If everything is fine, we should see a message "Data source is working"
+If everything is fine, we should see a message "Data source is working".
 ```
 
 <br><br><br>
 
-After logging into ` Grafana `, we can create our ` Prometheus ` as data source :
+Now let us import ` Cassandra Dashboard ` into ` Grafana ` :
 
 ```
-http://<SERVER_IP_OR_HOSTNAME>:3000/datasources/new
+http://<GRAFANA_IP_OR_HOSTNAME>:3000/dashboard/import
 
-Find "Prometheus" from the list of Data Sources and click on "Select" button.
+Click on "Upload JSON file" button.
 
-Use following options to configure this data source :
+Download and select "CassandraDashboardByORAMAD_<DATE>.json".
 
-Name     : myPrometheus
-Default  : True
-HTTP URL : http://<PROMETHEUS_IP_OR_HOSTNAME>:9090/
-
-Click on "Save & Test" button at the end of page.
-
-If everything is fine, we should see a message "Data source is working"
+Click on "Import" button.
 ```
 
+<br>
 
-<br><br>
+### Enjoy the Cassandra Dashboard developed by ORAMAD
 
+
+<br><br><br>
 
 
 ### This configuration is required on only one server which will run Grafana server.
