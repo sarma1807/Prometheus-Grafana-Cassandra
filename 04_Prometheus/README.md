@@ -11,6 +11,7 @@ https://prometheus.io/download/
 Download ` Prometheus ` from this webpage. <br><br><br>
 
 At the time of writing this, ` Prometheus version 2.25.1 ` was available. <br>
+
 ```
 cd ~
 tar -xzvf ~/software/prometheus-2.25.1.linux-amd64.tar.gz
@@ -38,7 +39,9 @@ $ vi ~/prometheus-current/prometheus.yml
 ```
 
 <br><br>
+
 Add entry to crontab ... to automatically start ` Prometheus ` along with server start :
+
 ```
 $ crontab -e
 
@@ -47,13 +50,17 @@ $ crontab -e
 ```
 
 <br><br><br>
+
 After server restart ` Prometheus ` webpage can be accessed at :
+
 ```
 http://<SERVER_IP_OR_HOSTNAME>:9090/
 ```
 
 <br>
+
 Webpage for status of ` Prometheus Targets ` can be accessed at :
+
 ```
 http://<SERVER_IP_OR_HOSTNAME>:9090/targets
 ```
