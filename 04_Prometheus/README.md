@@ -4,9 +4,7 @@
 
 We will install and configure ` Prometheus ` only on one server.
 
-```
-https://prometheus.io/download/
-```
+#### go to https://prometheus.io/download/
 
 Download ` Prometheus ` from this webpage. <br><br><br>
 
@@ -29,8 +27,8 @@ $ vi ~/prometheus-current/prometheus.yml
 
 # YAML files are sensitive about spaces/tabs - extra spaces/tabs can result in errors
 # add following entries at the end of file
-  # my cassandra nodes - node_exporter_metrics - provide IPs for all nodes
-  - job_name: 'node_exporter_metrics'
+  # my cassandra nodes - provide IPs for all nodes
+  - job_name: 'oramad_cassandra_metrics'
     scrape_interval: 180s
     static_configs:
     # - targets: ['<SERVER1_IP_OR_HOSTNAME>:9100', '<SERVER2_IP_OR_HOSTNAME>:9100', '<SERVER3_IP_OR_HOSTNAME>:9100', ...]
