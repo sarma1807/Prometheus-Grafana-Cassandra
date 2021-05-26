@@ -1,214 +1,267 @@
 # HELP go_gc_duration_seconds A summary of the pause duration of garbage collection cycles.
 # TYPE go_gc_duration_seconds summary
-go_gc_duration_seconds{quantile="0"} 0.000144015
-go_gc_duration_seconds{quantile="0.25"} 0.000144015
-go_gc_duration_seconds{quantile="0.5"} 0.000213044
-go_gc_duration_seconds{quantile="0.75"} 0.000243922
-go_gc_duration_seconds{quantile="1"} 0.000243922
-go_gc_duration_seconds_sum 0.000600981
-go_gc_duration_seconds_count 3
+go_gc_duration_seconds{quantile="0"} 1.812e-05
+go_gc_duration_seconds{quantile="0.25"} 2.8069e-05
+go_gc_duration_seconds{quantile="0.5"} 3.8696e-05
+go_gc_duration_seconds{quantile="0.75"} 8.3118e-05
+go_gc_duration_seconds{quantile="1"} 0.000198315
+go_gc_duration_seconds_sum 0.003780937
+go_gc_duration_seconds_count 71
 # HELP go_goroutines Number of goroutines that currently exist.
 # TYPE go_goroutines gauge
-go_goroutines 8
+go_goroutines 9
 # HELP go_info Information about the Go environment.
 # TYPE go_info gauge
 go_info{version="go1.15.8"} 1
 # HELP go_memstats_alloc_bytes Number of bytes allocated and still in use.
 # TYPE go_memstats_alloc_bytes gauge
-go_memstats_alloc_bytes 2.727856e+06
+go_memstats_alloc_bytes 2.589328e+06
 # HELP go_memstats_alloc_bytes_total Total number of bytes allocated, even if freed.
 # TYPE go_memstats_alloc_bytes_total counter
-go_memstats_alloc_bytes_total 7.018984e+06
+go_memstats_alloc_bytes_total 1.30797992e+08
 # HELP go_memstats_buck_hash_sys_bytes Number of bytes used by the profiling bucket hash table.
 # TYPE go_memstats_buck_hash_sys_bytes gauge
-go_memstats_buck_hash_sys_bytes 1.446763e+06
+go_memstats_buck_hash_sys_bytes 1.467851e+06
 # HELP go_memstats_frees_total Total number of frees.
 # TYPE go_memstats_frees_total counter
-go_memstats_frees_total 55344
+go_memstats_frees_total 2.281789e+06
 # HELP go_memstats_gc_cpu_fraction The fraction of this program's available CPU time used by the GC since the program started.
 # TYPE go_memstats_gc_cpu_fraction gauge
-go_memstats_gc_cpu_fraction 8.896945300058172e-06
+go_memstats_gc_cpu_fraction 5.559030063803267e-07
 # HELP go_memstats_gc_sys_bytes Number of bytes used for garbage collection system metadata.
 # TYPE go_memstats_gc_sys_bytes gauge
-go_memstats_gc_sys_bytes 4.954656e+06
+go_memstats_gc_sys_bytes 5.08416e+06
 # HELP go_memstats_heap_alloc_bytes Number of heap bytes allocated and still in use.
 # TYPE go_memstats_heap_alloc_bytes gauge
-go_memstats_heap_alloc_bytes 2.727856e+06
+go_memstats_heap_alloc_bytes 2.589328e+06
 # HELP go_memstats_heap_idle_bytes Number of heap bytes waiting to be used.
 # TYPE go_memstats_heap_idle_bytes gauge
-go_memstats_heap_idle_bytes 6.2971904e+07
+go_memstats_heap_idle_bytes 6.3553536e+07
 # HELP go_memstats_heap_inuse_bytes Number of heap bytes that are in use.
 # TYPE go_memstats_heap_inuse_bytes gauge
-go_memstats_heap_inuse_bytes 3.80928e+06
+go_memstats_heap_inuse_bytes 3.260416e+06
 # HELP go_memstats_heap_objects Number of allocated objects.
 # TYPE go_memstats_heap_objects gauge
-go_memstats_heap_objects 9142
+go_memstats_heap_objects 22260
 # HELP go_memstats_heap_released_bytes Number of heap bytes released to OS.
 # TYPE go_memstats_heap_released_bytes gauge
-go_memstats_heap_released_bytes 6.2291968e+07
+go_memstats_heap_released_bytes 6.2824448e+07
 # HELP go_memstats_heap_sys_bytes Number of heap bytes obtained from system.
 # TYPE go_memstats_heap_sys_bytes gauge
-go_memstats_heap_sys_bytes 6.6781184e+07
+go_memstats_heap_sys_bytes 6.6813952e+07
 # HELP go_memstats_last_gc_time_seconds Number of seconds since 1970 of last garbage collection.
 # TYPE go_memstats_last_gc_time_seconds gauge
-go_memstats_last_gc_time_seconds 1.6156752284151762e+09
+go_memstats_last_gc_time_seconds 1.6219988589423473e+09
 # HELP go_memstats_lookups_total Total number of pointer lookups.
 # TYPE go_memstats_lookups_total counter
 go_memstats_lookups_total 0
 # HELP go_memstats_mallocs_total Total number of mallocs.
 # TYPE go_memstats_mallocs_total counter
-go_memstats_mallocs_total 64486
+go_memstats_mallocs_total 2.304049e+06
 # HELP go_memstats_mcache_inuse_bytes Number of bytes in use by mcache structures.
 # TYPE go_memstats_mcache_inuse_bytes gauge
-go_memstats_mcache_inuse_bytes 3472
+go_memstats_mcache_inuse_bytes 1736
 # HELP go_memstats_mcache_sys_bytes Number of bytes used for mcache structures obtained from system.
 # TYPE go_memstats_mcache_sys_bytes gauge
 go_memstats_mcache_sys_bytes 16384
 # HELP go_memstats_mspan_inuse_bytes Number of bytes in use by mspan structures.
 # TYPE go_memstats_mspan_inuse_bytes gauge
-go_memstats_mspan_inuse_bytes 59024
+go_memstats_mspan_inuse_bytes 40120
 # HELP go_memstats_mspan_sys_bytes Number of bytes used for mspan structures obtained from system.
 # TYPE go_memstats_mspan_sys_bytes gauge
 go_memstats_mspan_sys_bytes 65536
 # HELP go_memstats_next_gc_bytes Number of heap bytes when next garbage collection will take place.
 # TYPE go_memstats_next_gc_bytes gauge
-go_memstats_next_gc_bytes 4.61968e+06
+go_memstats_next_gc_bytes 4.194304e+06
 # HELP go_memstats_other_sys_bytes Number of bytes used for other system allocations.
 # TYPE go_memstats_other_sys_bytes gauge
-go_memstats_other_sys_bytes 677493
+go_memstats_other_sys_bytes 526901
 # HELP go_memstats_stack_inuse_bytes Number of bytes in use by the stack allocator.
 # TYPE go_memstats_stack_inuse_bytes gauge
-go_memstats_stack_inuse_bytes 327680
+go_memstats_stack_inuse_bytes 294912
 # HELP go_memstats_stack_sys_bytes Number of bytes obtained from system for stack allocator.
 # TYPE go_memstats_stack_sys_bytes gauge
-go_memstats_stack_sys_bytes 327680
+go_memstats_stack_sys_bytes 294912
 # HELP go_memstats_sys_bytes Number of bytes obtained from system.
 # TYPE go_memstats_sys_bytes gauge
 go_memstats_sys_bytes 7.4269696e+07
 # HELP go_threads Number of OS threads created.
 # TYPE go_threads gauge
-go_threads 5
+go_threads 4
 # HELP node_exporter_build_info A metric with a constant '1' value labeled by version, revision, branch, and goversion from which node_exporter was built.
 # TYPE node_exporter_build_info gauge
-node_exporter_build_info{branch="HEAD",goversion="go1.15.8",revision="4e837d4da79cc59ee3ed1471ba9a0d9547e95540",version="1.1.1"} 1
+node_exporter_build_info{branch="HEAD",goversion="go1.15.8",revision="b597c1244d7bef49e6f3359c87a56dd7707f6719",version="1.1.2"} 1
 # HELP node_scrape_collector_duration_seconds node_exporter: Duration of a collector scrape.
 # TYPE node_scrape_collector_duration_seconds gauge
-node_scrape_collector_duration_seconds{collector="textfile"} 0.000646697
+node_scrape_collector_duration_seconds{collector="textfile"} 0.001441644
 # HELP node_scrape_collector_success node_exporter: Whether a collector succeeded.
 # TYPE node_scrape_collector_success gauge
 node_scrape_collector_success{collector="textfile"} 1
 # HELP node_textfile_mtime_seconds Unixtime mtime of textfiles successfully read.
 # TYPE node_textfile_mtime_seconds gauge
-node_textfile_mtime_seconds{file="oramad_cass_metrics.prom"} 1.615675213e+09
+node_textfile_mtime_seconds{file="oramad_cass_metrics.prom"} 1.62199891e+09
 # HELP node_textfile_scrape_error 1 if there was an error opening or reading a file, 0 otherwise
 # TYPE node_textfile_scrape_error gauge
 node_textfile_scrape_error 0
+# HELP oramad_cass_CounterCache_allocated_bytes Metric read from /tmp/oramad_cass_metrics.prom
+# TYPE oramad_cass_CounterCache_allocated_bytes untyped
+oramad_cass_CounterCache_allocated_bytes{cass_cluster_name="cass_cluster",data_center="east_dc",hostname_short="eternal2"} 2.62144e+07
+# HELP oramad_cass_KeyCache_allocated_bytes Metric read from /tmp/oramad_cass_metrics.prom
+# TYPE oramad_cass_KeyCache_allocated_bytes untyped
+oramad_cass_KeyCache_allocated_bytes{cass_cluster_name="cass_cluster",data_center="east_dc",hostname_short="eternal2"} 5.24288e+07
+# HELP oramad_cass_KeyCache_hits Metric read from /tmp/oramad_cass_metrics.prom
+# TYPE oramad_cass_KeyCache_hits untyped
+oramad_cass_KeyCache_hits{cass_cluster_name="cass_cluster",data_center="east_dc",hostname_short="eternal2"} 883268
+# HELP oramad_cass_KeyCache_misses Metric read from /tmp/oramad_cass_metrics.prom
+# TYPE oramad_cass_KeyCache_misses untyped
+oramad_cass_KeyCache_misses{cass_cluster_name="cass_cluster",data_center="east_dc",hostname_short="eternal2"} 55
+# HELP oramad_cass_KeyCache_requests Metric read from /tmp/oramad_cass_metrics.prom
+# TYPE oramad_cass_KeyCache_requests untyped
+oramad_cass_KeyCache_requests{cass_cluster_name="cass_cluster",data_center="east_dc",hostname_short="eternal2"} 883323
+# HELP oramad_cass_KeyCache_used_bytes Metric read from /tmp/oramad_cass_metrics.prom
+# TYPE oramad_cass_KeyCache_used_bytes untyped
+oramad_cass_KeyCache_used_bytes{cass_cluster_name="cass_cluster",data_center="east_dc",hostname_short="eternal2"} 5.605584e+06
+# HELP oramad_cass_auth_success Metric read from /tmp/oramad_cass_metrics.prom
+# TYPE oramad_cass_auth_success untyped
+oramad_cass_auth_success{cass_cluster_name="cass_cluster",data_center="east_dc",hostname_short="eternal2"} 568
 # HELP oramad_cass_datacenters_count Metric read from /tmp/oramad_cass_metrics.prom
 # TYPE oramad_cass_datacenters_count untyped
-oramad_cass_datacenters_count{cass_cluster_name="id_cluster",data_center="east_dc",hostname_short="eternal2"} 2
+oramad_cass_datacenters_count{cass_cluster_name="cass_cluster",data_center="east_dc",hostname_short="eternal2"} 1
 # HELP oramad_cass_heap_total_mb Metric read from /tmp/oramad_cass_metrics.prom
 # TYPE oramad_cass_heap_total_mb untyped
-oramad_cass_heap_total_mb{cass_cluster_name="id_cluster",data_center="east_dc",hostname_short="eternal2"} 1004
+oramad_cass_heap_total_mb{cass_cluster_name="cass_cluster",data_center="east_dc",hostname_short="eternal2"} 1014
 # HELP oramad_cass_heap_used_mb Metric read from /tmp/oramad_cass_metrics.prom
 # TYPE oramad_cass_heap_used_mb untyped
-oramad_cass_heap_used_mb{cass_cluster_name="id_cluster",data_center="east_dc",hostname_short="eternal2"} 141
+oramad_cass_heap_used_mb{cass_cluster_name="cass_cluster",data_center="east_dc",hostname_short="eternal2"} 396
 # HELP oramad_cass_heap_used_percent Metric read from /tmp/oramad_cass_metrics.prom
 # TYPE oramad_cass_heap_used_percent untyped
-oramad_cass_heap_used_percent{cass_cluster_name="id_cluster",data_center="east_dc",hostname_short="eternal2"} 14
+oramad_cass_heap_used_percent{cass_cluster_name="cass_cluster",data_center="east_dc",hostname_short="eternal2"} 39
+# HELP oramad_cass_latency Metric read from /tmp/oramad_cass_metrics.prom
+# TYPE oramad_cass_latency untyped
+oramad_cass_latency{cass_cluster_name="cass_cluster",data_center="east_dc",hostname_short="eternal2",keyspace_name="sales",latency_type="Coordinator Read",mean_rate_calls_per_second="3.31",table_name="users"} 56652
+oramad_cass_latency{cass_cluster_name="cass_cluster",data_center="east_dc",hostname_short="eternal2",keyspace_name="sales",latency_type="Coordinator Read",mean_rate_calls_per_second="46.41",table_name="products"} 793735
+oramad_cass_latency{cass_cluster_name="cass_cluster",data_center="east_dc",hostname_short="eternal2",keyspace_name="sales",latency_type="Coordinator Write",mean_rate_calls_per_second="3.31",table_name="sales_orders"} 56652
+oramad_cass_latency{cass_cluster_name="cass_cluster",data_center="east_dc",hostname_short="eternal2",keyspace_name="sales",latency_type="Coordinator Write",mean_rate_calls_per_second="40.36",table_name="products"} 690188
+oramad_cass_latency{cass_cluster_name="cass_cluster",data_center="east_dc",hostname_short="eternal2",keyspace_name="sales",latency_type="Coordinator Write",mean_rate_calls_per_second="40.36",table_name="sales_order_products"} 690188
+oramad_cass_latency{cass_cluster_name="cass_cluster",data_center="east_dc",hostname_short="eternal2",keyspace_name="sales",latency_type="Node Read",mean_rate_calls_per_second="3.31",table_name="users"} 56652
+oramad_cass_latency{cass_cluster_name="cass_cluster",data_center="east_dc",hostname_short="eternal2",keyspace_name="sales",latency_type="Node Read",mean_rate_calls_per_second="46.41",table_name="products"} 793735
+oramad_cass_latency{cass_cluster_name="cass_cluster",data_center="east_dc",hostname_short="eternal2",keyspace_name="sales",latency_type="Node Write",mean_rate_calls_per_second="3.31",table_name="sales_orders"} 56652
+oramad_cass_latency{cass_cluster_name="cass_cluster",data_center="east_dc",hostname_short="eternal2",keyspace_name="sales",latency_type="Node Write",mean_rate_calls_per_second="40.35",table_name="products"} 690188
+oramad_cass_latency{cass_cluster_name="cass_cluster",data_center="east_dc",hostname_short="eternal2",keyspace_name="sales",latency_type="Node Write",mean_rate_calls_per_second="40.36",table_name="sales_order_products"} 690188
 # HELP oramad_cass_node_info Metric read from /tmp/oramad_cass_metrics.prom
 # TYPE oramad_cass_node_info untyped
-oramad_cass_node_info{cass_cluster_name="id_cluster",cass_uptime_pretty="4+ minutes",cass_version="4.0-beta4",data_center="east_dc",data_size="91.95 MiB",hostname_short="eternal2",node_rack="NODE_02",node_repair_percent="N/A",num_tokens="8"} 1
+oramad_cass_node_info{cass_cluster_name="cass_cluster",cass_uptime_pretty="4+ hours",cass_version="4.0-beta4",data_center="east_dc",data_size="409.35 MiB",hostname_short="eternal2",node_rack="NODE_03",node_repair_percent="N/A",num_tokens="8"} 1
 # HELP oramad_cass_nodes_count Metric read from /tmp/oramad_cass_metrics.prom
 # TYPE oramad_cass_nodes_count untyped
-oramad_cass_nodes_count{cass_cluster_name="id_cluster",data_center="east_dc",hostname_short="eternal2"} 6
+oramad_cass_nodes_count{cass_cluster_name="cass_cluster",data_center="east_dc",hostname_short="eternal2"} 1
 # HELP oramad_cass_off_heap_used_mb Metric read from /tmp/oramad_cass_metrics.prom
 # TYPE oramad_cass_off_heap_used_mb untyped
-oramad_cass_off_heap_used_mb{cass_cluster_name="id_cluster",data_center="east_dc",hostname_short="eternal2"} 1
+oramad_cass_off_heap_used_mb{cass_cluster_name="cass_cluster",data_center="east_dc",hostname_short="eternal2"} 1.06
 # HELP oramad_cass_up Metric read from /tmp/oramad_cass_metrics.prom
 # TYPE oramad_cass_up untyped
-oramad_cass_up{cass_cluster_name="id_cluster",data_center="east_dc",hostname_short="eternal2"} 1
+oramad_cass_up{cass_cluster_name="cass_cluster",data_center="east_dc",hostname_short="eternal2"} 1
+# HELP oramad_commitlog_completed_tasks Metric read from /tmp/oramad_cass_metrics.prom
+# TYPE oramad_commitlog_completed_tasks untyped
+oramad_commitlog_completed_tasks{cass_cluster_name="cass_cluster",data_center="east_dc",hostname_short="eternal2"} 1.44188e+06
+# HELP oramad_commitlog_size_bytes Metric read from /tmp/oramad_cass_metrics.prom
+# TYPE oramad_commitlog_size_bytes untyped
+oramad_commitlog_size_bytes{cass_cluster_name="cass_cluster",data_center="east_dc",hostname_short="eternal2"} 3.01989888e+08
 # HELP oramad_cpu_idle_percent Metric read from /tmp/oramad_cass_metrics.prom
 # TYPE oramad_cpu_idle_percent untyped
-oramad_cpu_idle_percent{cass_cluster_name="id_cluster",data_center="east_dc",hostname_short="eternal2"} 47
+oramad_cpu_idle_percent{cass_cluster_name="cass_cluster",data_center="east_dc",hostname_short="eternal2"} 94
 # HELP oramad_cpu_used_percent Metric read from /tmp/oramad_cass_metrics.prom
 # TYPE oramad_cpu_used_percent untyped
-oramad_cpu_used_percent{cass_cluster_name="id_cluster",data_center="east_dc",hostname_short="eternal2"} 53
+oramad_cpu_used_percent{cass_cluster_name="cass_cluster",data_center="east_dc",hostname_short="eternal2"} 6
+# HELP oramad_cql_prep_stmts_cached Metric read from /tmp/oramad_cass_metrics.prom
+# TYPE oramad_cql_prep_stmts_cached untyped
+oramad_cql_prep_stmts_cached{cass_cluster_name="cass_cluster",data_center="east_dc",hostname_short="eternal2"} 13
+# HELP oramad_cql_prep_stmts_executed Metric read from /tmp/oramad_cass_metrics.prom
+# TYPE oramad_cql_prep_stmts_executed untyped
+oramad_cql_prep_stmts_executed{cass_cluster_name="cass_cluster",data_center="east_dc",hostname_short="eternal2"} 2.287415e+06
+# HELP oramad_cql_unprep_stmts_executed Metric read from /tmp/oramad_cass_metrics.prom
+# TYPE oramad_cql_unprep_stmts_executed untyped
+oramad_cql_unprep_stmts_executed{cass_cluster_name="cass_cluster",data_center="east_dc",hostname_short="eternal2"} 4260
+# HELP oramad_keyspace_size_bytes Metric read from /tmp/oramad_cass_metrics.prom
+# TYPE oramad_keyspace_size_bytes untyped
+oramad_keyspace_size_bytes{cass_cluster_name="cass_cluster",data_center="east_dc",hostname_short="eternal2",keyspace_name="cassdemo"} 5273
+oramad_keyspace_size_bytes{cass_cluster_name="cass_cluster",data_center="east_dc",hostname_short="eternal2",keyspace_name="sales"} 4.28920784e+08
 # HELP oramad_mount_available_inodes Metric read from /tmp/oramad_cass_metrics.prom
 # TYPE oramad_mount_available_inodes untyped
-oramad_mount_available_inodes{cass_cluster_name="id_cluster",data_center="east_dc",fstype="xfs",hostname_short="eternal2",mountpoint="/"} 2.7754196e+07
-oramad_mount_available_inodes{cass_cluster_name="id_cluster",data_center="east_dc",fstype="xfs",hostname_short="eternal2",mountpoint="/apps/opt"} 5.2426309e+07
+oramad_mount_available_inodes{cass_cluster_name="cass_cluster",data_center="east_dc",fstype="xfs",hostname_short="eternal2",mountpoint="/"} 8.874955e+06
 # HELP oramad_mount_available_inodes_percent Metric read from /tmp/oramad_cass_metrics.prom
 # TYPE oramad_mount_available_inodes_percent untyped
-oramad_mount_available_inodes_percent{cass_cluster_name="id_cluster",data_center="east_dc",fstype="xfs",hostname_short="eternal2",mountpoint="/"} 100
-oramad_mount_available_inodes_percent{cass_cluster_name="id_cluster",data_center="east_dc",fstype="xfs",hostname_short="eternal2",mountpoint="/apps/opt"} 100
+oramad_mount_available_inodes_percent{cass_cluster_name="cass_cluster",data_center="east_dc",fstype="xfs",hostname_short="eternal2",mountpoint="/"} 100
 # HELP oramad_mount_available_kb Metric read from /tmp/oramad_cass_metrics.prom
 # TYPE oramad_mount_available_kb untyped
-oramad_mount_available_kb{cass_cluster_name="id_cluster",data_center="east_dc",fstype="xfs",hostname_short="eternal2",mountpoint="/"} 5.3428752e+07
-oramad_mount_available_kb{cass_cluster_name="id_cluster",data_center="east_dc",fstype="xfs",hostname_short="eternal2",mountpoint="/apps/opt"} 1.04267332e+08
+oramad_mount_available_kb{cass_cluster_name="cass_cluster",data_center="east_dc",fstype="xfs",hostname_short="eternal2",mountpoint="/"} 1.50803e+07
 # HELP oramad_mount_available_percent Metric read from /tmp/oramad_cass_metrics.prom
 # TYPE oramad_mount_available_percent untyped
-oramad_mount_available_percent{cass_cluster_name="id_cluster",data_center="east_dc",fstype="xfs",hostname_short="eternal2",mountpoint="/"} 97
-oramad_mount_available_percent{cass_cluster_name="id_cluster",data_center="east_dc",fstype="xfs",hostname_short="eternal2",mountpoint="/apps/opt"} 100
+oramad_mount_available_percent{cass_cluster_name="cass_cluster",data_center="east_dc",fstype="xfs",hostname_short="eternal2",mountpoint="/"} 85
 # HELP oramad_mount_total_inodes Metric read from /tmp/oramad_cass_metrics.prom
 # TYPE oramad_mount_total_inodes untyped
-oramad_mount_total_inodes{cass_cluster_name="id_cluster",data_center="east_dc",fstype="xfs",hostname_short="eternal2",mountpoint="/"} 2.7787264e+07
-oramad_mount_total_inodes{cass_cluster_name="id_cluster",data_center="east_dc",fstype="xfs",hostname_short="eternal2",mountpoint="/apps/opt"} 5.2428288e+07
+oramad_mount_total_inodes{cass_cluster_name="cass_cluster",data_center="east_dc",fstype="xfs",hostname_short="eternal2",mountpoint="/"} 8.910848e+06
 # HELP oramad_mount_total_size_kb Metric read from /tmp/oramad_cass_metrics.prom
 # TYPE oramad_mount_total_size_kb untyped
-oramad_mount_total_size_kb{cass_cluster_name="id_cluster",data_center="east_dc",fstype="xfs",hostname_short="eternal2",mountpoint="/"} 5.5547392e+07
-oramad_mount_total_size_kb{cass_cluster_name="id_cluster",data_center="east_dc",fstype="xfs",hostname_short="eternal2",mountpoint="/apps/opt"} 1.0480538e+08
+oramad_mount_total_size_kb{cass_cluster_name="cass_cluster",data_center="east_dc",fstype="xfs",hostname_short="eternal2",mountpoint="/"} 1.7811456e+07
 # HELP oramad_mount_used_inodes Metric read from /tmp/oramad_cass_metrics.prom
 # TYPE oramad_mount_used_inodes untyped
-oramad_mount_used_inodes{cass_cluster_name="id_cluster",data_center="east_dc",fstype="xfs",hostname_short="eternal2",mountpoint="/"} 33068
-oramad_mount_used_inodes{cass_cluster_name="id_cluster",data_center="east_dc",fstype="xfs",hostname_short="eternal2",mountpoint="/apps/opt"} 1979
+oramad_mount_used_inodes{cass_cluster_name="cass_cluster",data_center="east_dc",fstype="xfs",hostname_short="eternal2",mountpoint="/"} 35893
 # HELP oramad_mount_used_inodes_percent Metric read from /tmp/oramad_cass_metrics.prom
 # TYPE oramad_mount_used_inodes_percent untyped
-oramad_mount_used_inodes_percent{cass_cluster_name="id_cluster",data_center="east_dc",fstype="xfs",hostname_short="eternal2",mountpoint="/"} 0
-oramad_mount_used_inodes_percent{cass_cluster_name="id_cluster",data_center="east_dc",fstype="xfs",hostname_short="eternal2",mountpoint="/apps/opt"} 0
+oramad_mount_used_inodes_percent{cass_cluster_name="cass_cluster",data_center="east_dc",fstype="xfs",hostname_short="eternal2",mountpoint="/"} 0
 # HELP oramad_mount_used_kb Metric read from /tmp/oramad_cass_metrics.prom
 # TYPE oramad_mount_used_kb untyped
-oramad_mount_used_kb{cass_cluster_name="id_cluster",data_center="east_dc",fstype="xfs",hostname_short="eternal2",mountpoint="/"} 2.11864e+06
-oramad_mount_used_kb{cass_cluster_name="id_cluster",data_center="east_dc",fstype="xfs",hostname_short="eternal2",mountpoint="/apps/opt"} 538048
+oramad_mount_used_kb{cass_cluster_name="cass_cluster",data_center="east_dc",fstype="xfs",hostname_short="eternal2",mountpoint="/"} 2.731156e+06
 # HELP oramad_mount_used_percent Metric read from /tmp/oramad_cass_metrics.prom
 # TYPE oramad_mount_used_percent untyped
-oramad_mount_used_percent{cass_cluster_name="id_cluster",data_center="east_dc",fstype="xfs",hostname_short="eternal2",mountpoint="/"} 3
-oramad_mount_used_percent{cass_cluster_name="id_cluster",data_center="east_dc",fstype="xfs",hostname_short="eternal2",mountpoint="/apps/opt"} 0
+oramad_mount_used_percent{cass_cluster_name="cass_cluster",data_center="east_dc",fstype="xfs",hostname_short="eternal2",mountpoint="/"} 15
 # HELP oramad_ram_available_bytes Metric read from /tmp/oramad_cass_metrics.prom
 # TYPE oramad_ram_available_bytes untyped
-oramad_ram_available_bytes{cass_cluster_name="id_cluster",data_center="east_dc",hostname_short="eternal2"} 1.444093952e+09
+oramad_ram_available_bytes{cass_cluster_name="cass_cluster",data_center="east_dc",hostname_short="eternal2"} 2.394898432e+09
 # HELP oramad_ram_available_percent Metric read from /tmp/oramad_cass_metrics.prom
 # TYPE oramad_ram_available_percent untyped
-oramad_ram_available_percent{cass_cluster_name="id_cluster",data_center="east_dc",hostname_short="eternal2"} 37
+oramad_ram_available_percent{cass_cluster_name="cass_cluster",data_center="east_dc",hostname_short="eternal2"} 58
 # HELP oramad_ram_total_bytes Metric read from /tmp/oramad_cass_metrics.prom
 # TYPE oramad_ram_total_bytes untyped
-oramad_ram_total_bytes{cass_cluster_name="id_cluster",data_center="east_dc",hostname_short="eternal2"} 3.973382144e+09
+oramad_ram_total_bytes{cass_cluster_name="cass_cluster",data_center="east_dc",hostname_short="eternal2"} 4.142362624e+09
 # HELP oramad_ram_used_bytes Metric read from /tmp/oramad_cass_metrics.prom
 # TYPE oramad_ram_used_bytes untyped
-oramad_ram_used_bytes{cass_cluster_name="id_cluster",data_center="east_dc",hostname_short="eternal2"} 2.529288192e+09
+oramad_ram_used_bytes{cass_cluster_name="cass_cluster",data_center="east_dc",hostname_short="eternal2"} 1.747464192e+09
 # HELP oramad_ram_used_percent Metric read from /tmp/oramad_cass_metrics.prom
 # TYPE oramad_ram_used_percent untyped
-oramad_ram_used_percent{cass_cluster_name="id_cluster",data_center="east_dc",hostname_short="eternal2"} 63
+oramad_ram_used_percent{cass_cluster_name="cass_cluster",data_center="east_dc",hostname_short="eternal2"} 42
 # HELP oramad_system_info Metric read from /tmp/oramad_cass_metrics.prom
 # TYPE oramad_system_info untyped
-oramad_system_info{cass_cluster_name="id_cluster",data_center="east_dc",domainname="OracleByExample.com",hostname_ip="192.168.1.152",hostname_ips="192.168.1.152 10.0.3.15 ",hostname_short="eternal2",os_release="CentOS Linux release 7.8.2003 (Core)",uptime_pretty_short="5+ minutes"} 1
+oramad_system_info{cass_cluster_name="cass_cluster",data_center="east_dc",domainname="OracleByExample.com",hostname_ip="192.168.1.183",hostname_ips="192.168.1.183 10.0.3.15 ",hostname_short="eternal2",os_release="CentOS Linux release 7.8.2003 (Core)",uptime_pretty_short="4+ hours"} 1
+# HELP oramad_table_size_bytes Metric read from /tmp/oramad_cass_metrics.prom
+# TYPE oramad_table_size_bytes untyped
+oramad_table_size_bytes{cass_cluster_name="cass_cluster",data_center="east_dc",hostname_short="eternal2",keyspace_name="cassdemo",table_name="emp"} 5273
+oramad_table_size_bytes{cass_cluster_name="cass_cluster",data_center="east_dc",hostname_short="eternal2",keyspace_name="sales",table_name="lookup_email_servers"} 10534
+oramad_table_size_bytes{cass_cluster_name="cass_cluster",data_center="east_dc",hostname_short="eternal2",keyspace_name="sales",table_name="lookup_product_categories"} 11323
+oramad_table_size_bytes{cass_cluster_name="cass_cluster",data_center="east_dc",hostname_short="eternal2",keyspace_name="sales",table_name="lookup_usa_states"} 13917
+oramad_table_size_bytes{cass_cluster_name="cass_cluster",data_center="east_dc",hostname_short="eternal2",keyspace_name="sales",table_name="lookup_user_platforms"} 10555
+oramad_table_size_bytes{cass_cluster_name="cass_cluster",data_center="east_dc",hostname_short="eternal2",keyspace_name="sales",table_name="products"} 5.791068e+06
+oramad_table_size_bytes{cass_cluster_name="cass_cluster",data_center="east_dc",hostname_short="eternal2",keyspace_name="sales",table_name="sales_order_products"} 3.78150001e+08
+oramad_table_size_bytes{cass_cluster_name="cass_cluster",data_center="east_dc",hostname_short="eternal2",keyspace_name="sales",table_name="sales_orders"} 4.3609009e+07
+oramad_table_size_bytes{cass_cluster_name="cass_cluster",data_center="east_dc",hostname_short="eternal2",keyspace_name="sales",table_name="users"} 1.324377e+06
 # HELP process_cpu_seconds_total Total user and system CPU time spent in seconds.
 # TYPE process_cpu_seconds_total counter
-process_cpu_seconds_total 0.13
+process_cpu_seconds_total 1.07
 # HELP process_max_fds Maximum number of open file descriptors.
 # TYPE process_max_fds gauge
-process_max_fds 100000
+process_max_fds 1024
 # HELP process_open_fds Number of open file descriptors.
 # TYPE process_open_fds gauge
-process_open_fds 10
+process_open_fds 11
 # HELP process_resident_memory_bytes Resident memory size in bytes.
 # TYPE process_resident_memory_bytes gauge
-process_resident_memory_bytes 1.9275776e+07
+process_resident_memory_bytes 1.835008e+07
 # HELP process_start_time_seconds Start time of the process since unix epoch in seconds.
 # TYPE process_start_time_seconds gauge
-process_start_time_seconds 1.61567490277e+09
+process_start_time_seconds 1.62198105855e+09
 # HELP process_virtual_memory_bytes Virtual memory size in bytes.
 # TYPE process_virtual_memory_bytes gauge
-process_virtual_memory_bytes 7.35305728e+08
+process_virtual_memory_bytes 7.35309824e+08
 # HELP process_virtual_memory_max_bytes Maximum amount of virtual memory available in bytes.
 # TYPE process_virtual_memory_max_bytes gauge
 process_virtual_memory_max_bytes 1.8446744073709552e+19
@@ -221,6 +274,6 @@ promhttp_metric_handler_errors_total{cause="gathering"} 0
 promhttp_metric_handler_requests_in_flight 1
 # HELP promhttp_metric_handler_requests_total Total number of scrapes by HTTP status code.
 # TYPE promhttp_metric_handler_requests_total counter
-promhttp_metric_handler_requests_total{code="200"} 14
+promhttp_metric_handler_requests_total{code="200"} 346
 promhttp_metric_handler_requests_total{code="500"} 0
 promhttp_metric_handler_requests_total{code="503"} 0
