@@ -21,7 +21,7 @@ ln -s ~/grafana-7.4.3 ~/grafana-current
 mkdir ~/grafana-current/logs
 ```
 
-` Prometheus ` was extracted to ` ~/grafana-7.4.3 `
+` Grafana ` was extracted to ` ~/grafana-7.4.3 `
 
 ---
 
