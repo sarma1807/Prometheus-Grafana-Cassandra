@@ -1,7 +1,9 @@
 #!/bin/bash
 
+### https://github.com/Sarma1807/Prometheus-Grafana-Cassandra
+
 # Prometheus & Grafana for Cassandra
-# script version : v01_20210312 : Sarma Pydipally
+# script version : v05_20210525 : Sarma Pydipally
 
 #########################
 ### start - change following settings according to your environment
@@ -28,6 +30,8 @@ source ~/.bash_profile > /dev/null ;
 MR_OUTPUT_FILE_01=/tmp/oramad_cass_metrics_reporter_1.tmp
 MR_OUTPUT_FILE_02=/tmp/oramad_cass_metrics_reporter_2.tmp
 MR_OUTPUT_FILE_03=/tmp/oramad_cass_metrics_reporter_3.tmp
+MR_OUTPUT_FILE_04=/tmp/oramad_cass_metrics_reporter_4.tmp
+MR_OUTPUT_FILE_05=/tmp/oramad_cass_metrics_reporter_5.tmp
 
 rm -f ${PROM_FILE}
 rm -f ${NODE_INFO}
@@ -35,7 +39,8 @@ rm -f ${NODE_STATUS}
 rm -f ${MR_OUTPUT_FILE_01}
 rm -f ${MR_OUTPUT_FILE_02}
 rm -f ${MR_OUTPUT_FILE_03}
-
+rm -f ${MR_OUTPUT_FILE_04}
+rm -f ${MR_OUTPUT_FILE_05}
 
 CASS_CLUSTER_NAME="unknown_cluster"
 CASS_DC_NAME="unknown_datacenter"
@@ -254,14 +259,10 @@ else
 fi
 
 
-if [ "${CASS_TYPE}" = "DSE" ]; then
-  CN_PR="N/A"         # cassandra percent repaired - NOT AVAILABLE in DSE
-else
-  CN_PR=`grep "Percent Repaired" ${NODE_INFO} | cut -d":" -f2 | cut -d"." -f1`      # cassandra percent repaired
-fi
-
-if [[ "${CN_PR}" -eq "0" ]]; then
-  CN_PR="N/A"         # cassandra percent repaired - NOT AVAILABLE in newer versions
+CN_PR=`grep "Percent Repaired" ${NODE_INFO} | cut -d":" -f2 | cut -d"." -f1`      # cassandra percent repaired
+CN_PR=$(echo "${CN_PR}" | sed 's/%//g')       # if we get NaN% - then remove %
+if [[ "${CN_PR}" -eq "0" ]] || [ "${CN_PR}" = "NaN" ]; then
+  CN_PR="N/A"       # if we get Zero or NaN - then replace it with N/A
 fi
 
 
@@ -301,13 +302,13 @@ touch ${MR_INPUT_FILE}
 RECENT_DUMP_START_LINE=`egrep --binary-files=text -n "=====" ${MR_INPUT_FILE} | tail -1 | cut -d":" -f1`
 
 # remove unwanted lines and write MR_OUTPUT_FILE_01
-tail --lines=+${RECENT_DUMP_START_LINE} ${MR_INPUT_FILE} | egrep -v "events/second|min =|max =|mean =|stddev =|median =|75% <=|95% <=|98% <=|99% <=|99.9% <=|-------" > ${MR_OUTPUT_FILE_01}
+tail --lines=+${RECENT_DUMP_START_LINE} ${MR_INPUT_FILE} | egrep -v "minute rate|events/second|min =|max =|mean =|stddev =|median =|75% <=|95% <=|98% <=|99% <=|99.9% <=|-------" > ${MR_OUTPUT_FILE_01}
 
 # formatting MR_OUTPUT_FILE_01
 sed -i "s/org.apache.cassandra/~org.apache.cassandra/g" ${MR_OUTPUT_FILE_01}
 
 # remove unwanted lines and write MR_OUTPUT_FILE_02
-cat ${MR_OUTPUT_FILE_01} | xargs | sed 's/~/\n/g' | egrep -v "count = 0|value = 0|NaN|TotalDiskSpaceUsed.system|TotalDiskSpaceUsed.dse|TotalDiskSpaceUsed.HiveMetaStore|TotalDiskSpaceUsed.solr_admin|TombstoneScannedHistogram.system|TombstoneScannedHistogram.dse|TombstoneScannedHistogram.HiveMetaStore|TombstoneScannedHistogram.solr_admin|ReadRepairRequests.system|ReadRepairRequests.dse|ReadRepairRequests.HiveMetaStore|ReadRepairRequests.solr_admin" > ${MR_OUTPUT_FILE_02}
+cat ${MR_OUTPUT_FILE_01} | xargs | sed 's/~/\n/g' | egrep -v "count = 0|value = 0|NaN|TotalDiskSpaceUsed.system|TotalDiskSpaceUsed.dse|TotalDiskSpaceUsed.HiveMetaStore|TotalDiskSpaceUsed.solr_admin|ChunkCache|Latency.system|Latency.dse|Latency.HiveMetaStore|Latency.solr_admin" > ${MR_OUTPUT_FILE_02}
 
 # formatting OUTPUT_FILE_02
 sed -i "s/value =/:/g" ${MR_OUTPUT_FILE_02}
@@ -324,6 +325,35 @@ sed -i 's/# org.apache.cassandra.metrics.CommitLog.CompletedTasks :/oramad_commi
 sed -i 's/# org.apache.cassandra.metrics.CommitLog.PendingTasks :/oramad_commitlog_pending_tasks{~}/g'            ${MR_OUTPUT_FILE_02}
 sed -i 's/# org.apache.cassandra.metrics.CommitLog.TotalCommitLogSize :/oramad_commitlog_size_bytes{~}/g'         ${MR_OUTPUT_FILE_02}
 
+sed -i 's/# org.apache.cassandra.metrics.Client.AuthFailure :/oramad_cass_auth_failures{~}/g'                     ${MR_OUTPUT_FILE_02}
+sed -i 's/# org.apache.cassandra.metrics.Client.AuthSuccess :/oramad_cass_auth_success{~}/g'                      ${MR_OUTPUT_FILE_02}
+sed -i 's/# org.apache.cassandra.metrics.Storage.Exceptions :/oramad_cass_storage_exceptions{~}/g'                ${MR_OUTPUT_FILE_02}
+sed -i 's/# org.apache.cassandra.metrics.Storage.TotalHints :/oramad_cass_total_hints_stored{~}/g'                ${MR_OUTPUT_FILE_02}
+sed -i 's/# org.apache.cassandra.metrics.Storage.TotalHintsInProgress :/oramad_cass_hints_being_sent{~}/g'        ${MR_OUTPUT_FILE_02}
+
+sed -i 's/# org.apache.cassandra.metrics.Cache.Capacity.KeyCache :/oramad_cass_KeyCache_allocated_bytes{~}/g'              ${MR_OUTPUT_FILE_02}
+sed -i 's/# org.apache.cassandra.metrics.Cache.Size.KeyCache :/oramad_cass_KeyCache_used_bytes{~}/g'                       ${MR_OUTPUT_FILE_02}
+sed -i 's/# org.apache.cassandra.metrics.Cache.Requests.KeyCache :/oramad_cass_KeyCache_requests{~}/g'                     ${MR_OUTPUT_FILE_02}
+sed -i 's/# org.apache.cassandra.metrics.Cache.Hits.KeyCache :/oramad_cass_KeyCache_hits{~}/g'                             ${MR_OUTPUT_FILE_02}
+sed -i 's/# org.apache.cassandra.metrics.Cache.Misses.KeyCache :/oramad_cass_KeyCache_misses{~}/g'                         ${MR_OUTPUT_FILE_02}
+sed -i 's/# org.apache.cassandra.metrics.Cache.Capacity.RowCache :/oramad_cass_RowCache_allocated_bytes{~}/g'              ${MR_OUTPUT_FILE_02}
+sed -i 's/# org.apache.cassandra.metrics.Cache.Size.RowCache :/oramad_cass_RowCache_used_bytes{~}/g'                       ${MR_OUTPUT_FILE_02}
+sed -i 's/# org.apache.cassandra.metrics.Cache.Requests.RowCache :/oramad_cass_RowCache_requests{~}/g'                     ${MR_OUTPUT_FILE_02}
+sed -i 's/# org.apache.cassandra.metrics.Cache.Hits.RowCache :/oramad_cass_RowCache_hits{~}/g'                             ${MR_OUTPUT_FILE_02}
+sed -i 's/# org.apache.cassandra.metrics.Cache.Misses.RowCache :/oramad_cass_RowCache_misses{~}/g'                         ${MR_OUTPUT_FILE_02}
+sed -i 's/# org.apache.cassandra.metrics.Cache.Capacity.CounterCache :/oramad_cass_CounterCache_allocated_bytes{~}/g'      ${MR_OUTPUT_FILE_02}
+sed -i 's/# org.apache.cassandra.metrics.Cache.Size.CounterCache :/oramad_cass_CounterCache_used_bytes{~}/g'               ${MR_OUTPUT_FILE_02}
+sed -i 's/# org.apache.cassandra.metrics.Cache.Requests.CounterCache :/oramad_cass_CounterCache_requests{~}/g'             ${MR_OUTPUT_FILE_02}
+sed -i 's/# org.apache.cassandra.metrics.Cache.Hits.CounterCache :/oramad_cass_CounterCache_hits{~}/g'                     ${MR_OUTPUT_FILE_02}
+sed -i 's/# org.apache.cassandra.metrics.Cache.Misses.CounterCache :/oramad_cass_CounterCache_misses{~}/g'                 ${MR_OUTPUT_FILE_02}
+
+
+sed -i 's/# org.apache.cassandra.metrics.ClientRequest.Timeouts./# oramad_cass_client_request_timeouts{~,timeout_type="/g'            ${MR_OUTPUT_FILE_02}
+egrep "oramad_cass_client_request_timeouts" ${MR_OUTPUT_FILE_02} > ${MR_OUTPUT_FILE_03}
+sed -i 's/ :/"}/g' ${MR_OUTPUT_FILE_03}
+sed -i 's/#//g'    ${MR_OUTPUT_FILE_03}
+cat ${MR_OUTPUT_FILE_03} >> ${MR_OUTPUT_FILE_02}
+
 sed -i 's/# org.apache.cassandra.metrics.keyspace.TotalDiskSpaceUsed./# oramad_keyspace_size_bytes{~,keyspace_name="/g'            ${MR_OUTPUT_FILE_02}
 egrep "oramad_keyspace_size_bytes" ${MR_OUTPUT_FILE_02} > ${MR_OUTPUT_FILE_03}
 sed -i 's/ :/"}/g' ${MR_OUTPUT_FILE_03}
@@ -337,6 +367,25 @@ sed -i 's/\./",table_name="/g' ${MR_OUTPUT_FILE_03}
 sed -i 's/ :/"}/g' ${MR_OUTPUT_FILE_03}
 sed -i 's/#//g'    ${MR_OUTPUT_FILE_03}
 cat ${MR_OUTPUT_FILE_03} | egrep -iv '"all"' >> ${MR_OUTPUT_FILE_02}
+
+sed -i 's/# org.apache.cassandra.metrics.Table.ReadLatency./# oramad_cass_latency{~,latency_type="Node Read",keyspace_name="/g'                          ${MR_OUTPUT_FILE_02}
+sed -i 's/# org.apache.cassandra.metrics.Table.RangeLatency./# oramad_cass_latency{~,latency_type="Node Range",keyspace_name="/g'                        ${MR_OUTPUT_FILE_02}
+sed -i 's/# org.apache.cassandra.metrics.Table.WriteLatency./# oramad_cass_latency{~,latency_type="Node Write",keyspace_name="/g'                        ${MR_OUTPUT_FILE_02}
+sed -i 's/# org.apache.cassandra.metrics.Table.CoordinatorReadLatency./# oramad_cass_latency{~,latency_type="Coordinator Read",keyspace_name="/g'        ${MR_OUTPUT_FILE_02}
+sed -i 's/# org.apache.cassandra.metrics.Table.CoordinatorWriteLatency./# oramad_cass_latency{~,latency_type="Coordinator Write",keyspace_name="/g'      ${MR_OUTPUT_FILE_02}
+sed -i 's/# org.apache.cassandra.metrics.Table.CoordinatorScanLatency./# oramad_cass_latency{~,latency_type="Coordinator Scan",keyspace_name="/g'        ${MR_OUTPUT_FILE_02}
+egrep "latency" ${MR_OUTPUT_FILE_02} > ${MR_OUTPUT_FILE_03}
+egrep -iv "all " ${MR_OUTPUT_FILE_03} > ${MR_OUTPUT_FILE_04}
+sed -i 's/ :/"}/g'                                ${MR_OUTPUT_FILE_04}
+sed -i 's/ mean rate = /:/g'                      ${MR_OUTPUT_FILE_04}
+sed -i 's/ calls\/second//g'                      ${MR_OUTPUT_FILE_04}
+sed -i 's/\./",table_name="/1'                    ${MR_OUTPUT_FILE_04}
+sed -i 's/}/,mean_rate_calls_per_second="@"}/g'   ${MR_OUTPUT_FILE_04}
+sed -i 's/@/:/g'                                  ${MR_OUTPUT_FILE_04}
+sed -i 's/[ \t]*$//'                              ${MR_OUTPUT_FILE_04}
+awk --field-separator=":" '{print $1$3$2}'        ${MR_OUTPUT_FILE_04} > ${MR_OUTPUT_FILE_05}
+sed -i 's/#//g' ${MR_OUTPUT_FILE_05}
+cat ${MR_OUTPUT_FILE_05} >> ${MR_OUTPUT_FILE_02}
 
 
 ### replace COMMON_TAGS
@@ -367,6 +416,8 @@ rm -f ${NODE_STATUS}
 rm -f ${MR_OUTPUT_FILE_01}
 rm -f ${MR_OUTPUT_FILE_02}
 rm -f ${MR_OUTPUT_FILE_03}
+rm -f ${MR_OUTPUT_FILE_04}
+rm -f ${MR_OUTPUT_FILE_05}
 
 echo "`date +'%d-%b-%Y %I:%M:%S %p'` : Script was executed without ERRORs." >> ${BASH_SOURCE}.log
 
