@@ -1,18 +1,14 @@
 # Grafana
 
-```
 https://grafana.com/grafana/dashboards/14070
-```
 
-<br>
+---
 
 ` ASSUMPTION : ~ = /apps/opt/promgraf `
 
 We will install and configure ` Grafana ` only on one server.
 
-```
 https://grafana.com/grafana/download
-```
 
 Download ` Grafana ` from this webpage. <br><br><br>
 
@@ -27,7 +23,7 @@ mkdir ~/grafana-current/logs
 
 ` Prometheus ` was extracted to ` ~/grafana-7.4.3 `
 
-<br><br><br>
+---
 
 ### Grafana Configuration File
 
@@ -39,7 +35,7 @@ $ egrep "^http_port" ~/grafana-current/conf/defaults.ini
 http_port = 3000
 ```
 
-<br><br>
+---
 
 Add entry to crontab ... to automatically start ` Grafana ` along with server start :
 
@@ -87,7 +83,7 @@ Click on "Save & Test" button at the end of page.
 If everything is fine, we should see a message "Data source is working".
 ```
 
-<br><br><br>
+---
 
 Now let us import ` Cassandra Dashboard ` into ` Grafana ` :
 
