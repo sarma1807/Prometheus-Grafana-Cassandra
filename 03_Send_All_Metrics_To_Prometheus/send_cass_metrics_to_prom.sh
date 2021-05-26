@@ -3,7 +3,7 @@
 ### https://github.com/Sarma1807/Prometheus-Grafana-Cassandra
 
 # Prometheus & Grafana for Cassandra
-# script version : v05_20210525 : Sarma Pydipally
+# script version : v05_20210526 : Sarma Pydipally
 
 #########################
 ### start - change following settings according to your environment
@@ -317,19 +317,23 @@ sed -i "s/count =/:/g" ${MR_OUTPUT_FILE_02}
 ### prom formatting
 sed -i 's/^\s*/# /g' ${MR_OUTPUT_FILE_02}
 
+
 sed -i 's/# org.apache.cassandra.metrics.CQL.PreparedStatementsCount :/oramad_cql_prep_stmts_cached{~}/g'         ${MR_OUTPUT_FILE_02}
 sed -i 's/# org.apache.cassandra.metrics.CQL.PreparedStatementsExecuted :/oramad_cql_prep_stmts_executed{~}/g'    ${MR_OUTPUT_FILE_02}
 sed -i 's/# org.apache.cassandra.metrics.CQL.RegularStatementsExecuted :/oramad_cql_unprep_stmts_executed{~}/g'   ${MR_OUTPUT_FILE_02}
 
+
 sed -i 's/# org.apache.cassandra.metrics.CommitLog.CompletedTasks :/oramad_commitlog_completed_tasks{~}/g'        ${MR_OUTPUT_FILE_02}
 sed -i 's/# org.apache.cassandra.metrics.CommitLog.PendingTasks :/oramad_commitlog_pending_tasks{~}/g'            ${MR_OUTPUT_FILE_02}
 sed -i 's/# org.apache.cassandra.metrics.CommitLog.TotalCommitLogSize :/oramad_commitlog_size_bytes{~}/g'         ${MR_OUTPUT_FILE_02}
+
 
 sed -i 's/# org.apache.cassandra.metrics.Client.AuthFailure :/oramad_cass_auth_failures{~}/g'                     ${MR_OUTPUT_FILE_02}
 sed -i 's/# org.apache.cassandra.metrics.Client.AuthSuccess :/oramad_cass_auth_success{~}/g'                      ${MR_OUTPUT_FILE_02}
 sed -i 's/# org.apache.cassandra.metrics.Storage.Exceptions :/oramad_cass_storage_exceptions{~}/g'                ${MR_OUTPUT_FILE_02}
 sed -i 's/# org.apache.cassandra.metrics.Storage.TotalHints :/oramad_cass_total_hints_stored{~}/g'                ${MR_OUTPUT_FILE_02}
 sed -i 's/# org.apache.cassandra.metrics.Storage.TotalHintsInProgress :/oramad_cass_hints_being_sent{~}/g'        ${MR_OUTPUT_FILE_02}
+
 
 sed -i 's/# org.apache.cassandra.metrics.Cache.Capacity.KeyCache :/oramad_cass_KeyCache_allocated_bytes{~}/g'              ${MR_OUTPUT_FILE_02}
 sed -i 's/# org.apache.cassandra.metrics.Cache.Size.KeyCache :/oramad_cass_KeyCache_used_bytes{~}/g'                       ${MR_OUTPUT_FILE_02}
@@ -354,11 +358,13 @@ sed -i 's/ :/"}/g' ${MR_OUTPUT_FILE_03}
 sed -i 's/#//g'    ${MR_OUTPUT_FILE_03}
 cat ${MR_OUTPUT_FILE_03} >> ${MR_OUTPUT_FILE_02}
 
+
 sed -i 's/# org.apache.cassandra.metrics.keyspace.TotalDiskSpaceUsed./# oramad_keyspace_size_bytes{~,keyspace_name="/g'            ${MR_OUTPUT_FILE_02}
 egrep "oramad_keyspace_size_bytes" ${MR_OUTPUT_FILE_02} > ${MR_OUTPUT_FILE_03}
 sed -i 's/ :/"}/g' ${MR_OUTPUT_FILE_03}
 sed -i 's/#//g'    ${MR_OUTPUT_FILE_03}
 cat ${MR_OUTPUT_FILE_03} >> ${MR_OUTPUT_FILE_02}
+
 
 sed -i 's/# org.apache.cassandra.metrics.Table.TotalDiskSpaceUsed./# oramad_table_size_bytes{~,keyspace_name="/g'            ${MR_OUTPUT_FILE_02}
 egrep "oramad_table_size_bytes" ${MR_OUTPUT_FILE_02} > ${MR_OUTPUT_FILE_03}
@@ -367,6 +373,7 @@ sed -i 's/\./",table_name="/g' ${MR_OUTPUT_FILE_03}
 sed -i 's/ :/"}/g' ${MR_OUTPUT_FILE_03}
 sed -i 's/#//g'    ${MR_OUTPUT_FILE_03}
 cat ${MR_OUTPUT_FILE_03} | egrep -iv '"all"' >> ${MR_OUTPUT_FILE_02}
+
 
 sed -i 's/# org.apache.cassandra.metrics.Table.ReadLatency./# oramad_cass_latency{~,latency_type="Node Read",keyspace_name="/g'                          ${MR_OUTPUT_FILE_02}
 sed -i 's/# org.apache.cassandra.metrics.Table.RangeLatency./# oramad_cass_latency{~,latency_type="Node Range",keyspace_name="/g'                        ${MR_OUTPUT_FILE_02}
@@ -385,7 +392,8 @@ sed -i 's/@/:/g'                                  ${MR_OUTPUT_FILE_04}
 sed -i 's/[ \t]*$//'                              ${MR_OUTPUT_FILE_04}
 awk --field-separator=":" '{print $1$3$2}'        ${MR_OUTPUT_FILE_04} > ${MR_OUTPUT_FILE_05}
 sed -i 's/#//g' ${MR_OUTPUT_FILE_05}
-cat ${MR_OUTPUT_FILE_05} >> ${MR_OUTPUT_FILE_02}
+cat ${MR_OUTPUT_FILE_05} | egrep "}" >> ${MR_OUTPUT_FILE_02}
+
 
 
 ### replace COMMON_TAGS
