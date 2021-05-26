@@ -8,7 +8,7 @@ https://grafana.com/grafana/dashboards/14070
 
 We will install and configure ` Grafana ` only on one server.
 
-https://grafana.com/grafana/download
+#### go to https://grafana.com/grafana/download
 
 Download ` Grafana ` from this webpage. <br><br><br>
 
