@@ -95,6 +95,10 @@ http://<GRAFANA_IP_OR_HOSTNAME>:3000/dashboard/import
 Put "14070" in text box for "Import via grafana.com"
 
 Click on "Load" button.
+
+Grafana should download the dashboard from grafana.com
+
+Click on "Import" button.
 ```
 
 ##### if your server does NOT have internet access :
