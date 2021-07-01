@@ -98,6 +98,8 @@ Click on "Load" button.
 
 Grafana should download the dashboard from grafana.com
 
+Under "Options" - select "Prometheus" as your data source.
+
 Click on "Import" button.
 ```
 
@@ -109,6 +111,8 @@ http://<GRAFANA_IP_OR_HOSTNAME>:3000/dashboard/import
 Click on "Upload JSON file" button.
 
 Download and select "CassandraDashboardByORAMAD_<DATE>.json".
+
+Under "Options" - select "Prometheus" as your data source.
 
 Click on "Import" button.
 ```
