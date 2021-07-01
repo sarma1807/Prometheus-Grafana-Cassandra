@@ -85,7 +85,19 @@ If everything is fine, we should see a message "Data source is working".
 
 ---
 
-Now let us import ` Cassandra Dashboard ` into ` Grafana ` :
+#### Now let us import ` Cassandra Dashboard ` into ` Grafana ` :
+
+##### if your server HAS internet access :
+
+```
+http://<GRAFANA_IP_OR_HOSTNAME>:3000/dashboard/import
+
+Put "14070" in text box for "Import via grafana.com"
+
+Click on "Load" button.
+```
+
+##### if your server does NOT have internet access :
 
 ```
 http://<GRAFANA_IP_OR_HOSTNAME>:3000/dashboard/import
@@ -96,6 +108,8 @@ Download and select "CassandraDashboardByORAMAD_<DATE>.json".
 
 Click on "Import" button.
 ```
+
+---
 
 <br>
 
