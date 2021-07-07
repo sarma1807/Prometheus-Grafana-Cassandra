@@ -1,3 +1,5 @@
+![CassPromGraf_00_Arch.jpg](https://github.com/sarma1807/Prometheus-Grafana-Cassandra/blob/main/Screenshots/JPGs/CassPromGraf_00_Arch.jpg) <br><br>
+
 # Prometheus & Grafana for Apache Cassandra
 
 ### Environment
