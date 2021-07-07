@@ -18,3 +18,5 @@
 ![CassPromGraf_12.jpg](https://github.com/sarma1807/Prometheus-Grafana-Cassandra/blob/main/Screenshots/JPGs/CassPromGraf_12.jpg) <br><br>
 ![CassPromGraf_13.jpg](https://github.com/sarma1807/Prometheus-Grafana-Cassandra/blob/main/Screenshots/JPGs/CassPromGraf_13.jpg) <br><br>
 ![CassPromGraf_14.jpg](https://github.com/sarma1807/Prometheus-Grafana-Cassandra/blob/main/Screenshots/JPGs/CassPromGraf_14.jpg) <br><br>
+
+![CassPromGraf_00_Arch.jpg](https://github.com/sarma1807/Prometheus-Grafana-Cassandra/blob/main/Screenshots/JPGs/CassPromGraf_00_Arch.jpg) <br><br>
