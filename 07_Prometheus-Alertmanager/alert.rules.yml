@@ -1,0 +1,14 @@
+
+groups:
+- name: alert_group
+  rules:
+  - alert: Cassandra_Down
+    expr: oramad_cass_up == 0
+    for: 1m
+    # adding custom labels to alerts is possible in following way
+    labels:
+      severity: "critical"
+    annotations:
+      summary: "Cassandra on {{ $labels.hostname_short }} in {{ $labels.cass_cluster_name }} is down"
+      description: "Cassandra on {{ $labels.hostname_short }} in {{ $labels.cass_cluster_name }} is down"
+

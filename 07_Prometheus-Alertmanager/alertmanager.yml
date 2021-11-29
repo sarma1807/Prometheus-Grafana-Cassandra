@@ -1,0 +1,18 @@
+
+### global: global configuration parameters applies to alertmanager at global level
+global:
+  smtp_smarthost: 'mysmtp.OracleByExample.com:25'
+  smtp_hello: 'promgraf.OracleByExample.com'
+  smtp_from: 'prom.alertmgr@promgraf.OracleByExample.com'
+  smtp_require_tls: false
+
+route:
+  receiver: 'email_to_dbateam'
+
+receivers:
+- name: 'email_to_dbateam'
+  email_configs:
+  - to: alert@mysmtp.OracleByExample.com
+    send_resolved: true
+
+
