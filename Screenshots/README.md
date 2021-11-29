@@ -21,6 +21,12 @@
 
 ![CassPromGraf_00_Arch.jpg](https://github.com/sarma1807/Prometheus-Grafana-Cassandra/blob/main/Screenshots/JPGs/CassPromGraf_00_Arch.jpg) <br><br>
 
+<br>
+
+### Email Alerts using Prometheus Alertmanager
+
+<br>
+
 ![PromAlertMgr_Firing.jpg](https://github.com/sarma1807/Prometheus-Grafana-Cassandra/blob/main/Screenshots/JPGs/PromAlertMgr_Firing.jpg) <br><br>
 ![PromAlertMgr_Resolved.jpg](https://github.com/sarma1807/Prometheus-Grafana-Cassandra/blob/main/Screenshots/JPGs/PromAlertMgr_Resolved.jpg) <br><br>
 
