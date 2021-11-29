@@ -1,8 +1,4 @@
-# my global config
-global:
-  scrape_interval: 60s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
-  evaluation_interval: 60s # Evaluate rules every 15 seconds. The default is every 1 minute.
-  # scrape_timeout is set to the global default (10s).
+### NOTE : THIS IS NOT A COMPLETE CONFIGURATION FILE ###
 
 # Alertmanager configuration
 alerting:
@@ -17,23 +13,4 @@ rule_files:
   # - "first_rules.yml"
   # - "second_rules.yml"
   - "alert.rules.yml"
-
-# A scrape configuration containing exactly one endpoint to scrape:
-# Here it's Prometheus itself.
-scrape_configs:
-  # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
-  - job_name: "prometheus"
-
-    # metrics_path defaults to '/metrics'
-    # scheme defaults to 'http'.
-
-    static_configs:
-      - targets: ["192.168.1.182:9090"]
-
-  # my cassandra nodes - node_exporter_metrics - provide IPs for all nodes
-  - job_name: 'oramad_cassandra_metrics'
-    scrape_interval: 180s
-    static_configs:
-    - targets: ['192.168.1.171:9100', '192.168.1.172:9100', '192.168.1.173:9100']
-
 
