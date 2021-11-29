@@ -36,6 +36,6 @@ We will configure and run ` Prometheus & Grafana ` on following server :
 
 
 ### Prometheus Alertmanager
-In future, we should implement ` Alertmanager `
+Completed and code has been published during November 2021.
 <br><br><br>
 
