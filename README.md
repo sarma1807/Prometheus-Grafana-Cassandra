@@ -39,3 +39,10 @@ We will configure and run ` Prometheus & Grafana ` on following server :
 Completed and code has been published during November 2021.
 <br><br><br>
 
+---
+
+### New Requirements
+```
+currently using "sendmail"
+in future can we support "mailx" too ?
+```
