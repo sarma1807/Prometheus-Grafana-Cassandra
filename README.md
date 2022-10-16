@@ -41,8 +41,26 @@ Completed and code has been published during November 2021.
 
 ---
 
+### Latest Verification
+
+```
+# 16-October-2022
+# this is working properly with following software versions :
+
+Linux OS : CentOS Stream release 9 (5.14.0-171.el9.x86_64)
+Apache Cassandra Release Version 4.1-beta1
+Prometheus node_exporter version 1.4.0
+Prometheus version 2.39.1
+Prometheus AlertManager version 0.24.0
+Grafana version 9.2.0
+
+```
+
+---
+
 ### New Requirements
 ```
 currently using "sendmail"
 in future can we support "mailx" too ?
 ```
+
