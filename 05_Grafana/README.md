@@ -68,9 +68,17 @@ Password : admin
 After logging into ` Grafana `, we can create our ` Prometheus ` as data source :
 
 ```
+# in OLDER versions of Grafana - out-of-the-box - it came with a default Prometheus data source
+# so we just need to edit those settings
 http://<GRAFANA_IP_OR_HOSTNAME>:3000/datasources/edit/1/
-
 *** Note that we are editing the default "Prometheus" Data Source ***
+
+
+# in NEWER versions of Grafana - out-of-the-box - it DOES NOT come with a default Prometheus data source
+# so we just need to add a new data source
+http://<GRAFANA_IP_OR_HOSTNAME>:3000/datasources
+*** select "Prometheus" as Data Source ***
+
 
 Use following options to configure this data source :
 
