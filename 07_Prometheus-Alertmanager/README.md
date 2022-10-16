@@ -57,7 +57,7 @@ route:
 receivers:
 - name: 'email_to_dbateam'
   email_configs:
-  - to: alert@mysmtp.OracleByExample.com
+  - to: alerts@mysmtp.OracleByExample.com
     send_resolved: true
 
 ### end of file
