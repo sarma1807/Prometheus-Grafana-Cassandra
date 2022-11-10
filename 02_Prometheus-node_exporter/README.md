@@ -13,11 +13,10 @@ tar -xzvf ~/software/node_exporter-1.1.2.linux-amd64.tar.gz
 ln -s ~/node_exporter-1.1.2.linux-amd64 ~/node_exporter-current
 ```
 
-<br><br><br>
+<br>
 
+check node_exporter version :
 ```
-# check node_exporter version :
-
 $ ~/node_exporter-current/node_exporter --version
 
 node_exporter, version 1.1.2 (branch: HEAD, revision: b597c1244d7bef49e6f3359c87a56dd7707f6719)
@@ -29,12 +28,10 @@ node_exporter, version 1.1.2 (branch: HEAD, revision: b597c1244d7bef49e6f3359c87
 $
 ```
 
-<br><br><br>
+<br><br>
 
-```
-node_exporter_runtime.sh
-```
-Download this shell script and place it in ` ~/node_exporter-current/ ` folder. <br><br><br>
+
+Download the shell script ` node_exporter_runtime.sh ` and place it in ` ~/node_exporter-current/ ` folder. <br><br>
 
 Change permissions for shell script :
 ```
