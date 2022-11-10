@@ -10,15 +10,15 @@ At the time of writing this, ` node_exporter version 1.1.2 ` was available. <br>
 ```
 cd ~
 tar -xzvf ~/software/node_exporter-1.1.2.linux-amd64.tar.gz
+ln -s ~/node_exporter-1.1.2.linux-amd64 ~/node_exporter-current
 ```
 
-` node_exporter ` was extracted to ` ~/node_exporter-1.1.2.linux-amd64 `
 <br><br><br>
 
 ```
 # check node_exporter version :
 
-$ ~/node_exporter-1.1.2.linux-amd64/node_exporter --version
+$ ~/node_exporter-current/node_exporter --version
 
 node_exporter, version 1.1.2 (branch: HEAD, revision: b597c1244d7bef49e6f3359c87a56dd7707f6719)
   build user:       root@f07de8ca602a
@@ -34,11 +34,11 @@ $
 ```
 node_exporter_runtime.sh
 ```
-Download this shell script and place it in ` ~/node_exporter-1.1.2.linux-amd64/ ` folder. <br><br><br>
+Download this shell script and place it in ` ~/node_exporter-current/ ` folder. <br><br><br>
 
 Change permissions for shell script :
 ```
-chmod u+rwx ~/node_exporter-1.1.2.linux-amd64/node_exporter_runtime.sh
+chmod u+rwx ~/node_exporter-current/node_exporter_runtime.sh
 ```
 
 ##### Note that this shell script contains an entry for starting ` node_exporter ` on ` port 9100 `
@@ -50,7 +50,7 @@ Add entry to crontab ... to automatically start ` node_exporter ` along with ser
 $ crontab -e
 
 ##### add following line
-@reboot	sh ~/node_exporter-1.1.2.linux-amd64/node_exporter_runtime.sh
+@reboot	sh ~/node_exporter-current/node_exporter_runtime.sh
 ```
 
 <br><br><br>
