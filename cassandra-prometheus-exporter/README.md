@@ -17,3 +17,5 @@ $
 ### crontab entry
 */2 * * * * sh ~/send_cass_metrics_to_prom_2024.sh
 ### this shell script will prepare and publish metrics to prometheus using node-exporter : currently this shell script is taking less than 10 seconds to execute
+<br>
+![CassPromGraf_24_Arch.jpg](https://github.com/sarma1807/Prometheus-Grafana-Cassandra/blob/main/cassandra-prometheus-exporter/CassPromGraf_24_Arch.jpg)
