@@ -1,4 +1,4 @@
-![CassPromGraf_00_Arch.jpg](https://github.com/sarma1807/Prometheus-Grafana-Cassandra/blob/main/Screenshots/JPGs/CassPromGraf_00_Arch.jpg) <br><br>
+![CassPromGraf_24_Arch.jpg](https://github.com/sarma1807/Prometheus-Grafana-Cassandra/blob/main/Screenshots/JPGs/CassPromGraf_24_Arch.jpg) <br><br>
 
 # Prometheus & Grafana for Apache Cassandra
 
@@ -44,6 +44,19 @@ Completed and code has been published during November 2021.
 ### Latest Verification
 
 ```
+# 02-February-2024
+# this is working properly with following software versions :
+
+Linux OS : Rocky Linux release 9.3 (5.14.0-362.13.1.el9_3.x86_64)
+Apache Cassandra Release Version 5.0-beta1
+Prometheus node_exporter version 1.7.0
+Prometheus version 2.49.1
+Prometheus AlertManager version 0.26.0
+Grafana version 10.3.1
+
+```
+
+```
 # 16-October-2022
 # this is working properly with following software versions :
 
@@ -63,4 +76,3 @@ Grafana version 9.2.0
 currently using "sendmail"
 in future can we support "mailx" too ?
 ```
-
