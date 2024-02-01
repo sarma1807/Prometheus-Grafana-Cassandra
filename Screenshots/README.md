@@ -1,6 +1,6 @@
 # Screenshots of Cassandra Grafana Dashboard
 
-### Captured on 26-May-2021
+### Captured on 26-May-2021 : Updated on 02-February-2024
 
 <br>
 
@@ -19,7 +19,8 @@
 ![CassPromGraf_13.jpg](https://github.com/sarma1807/Prometheus-Grafana-Cassandra/blob/main/Screenshots/JPGs/CassPromGraf_13.jpg) <br><br>
 ![CassPromGraf_14.jpg](https://github.com/sarma1807/Prometheus-Grafana-Cassandra/blob/main/Screenshots/JPGs/CassPromGraf_14.jpg) <br><br>
 
-![CassPromGraf_00_Arch.jpg](https://github.com/sarma1807/Prometheus-Grafana-Cassandra/blob/main/Screenshots/JPGs/CassPromGraf_00_Arch.jpg) <br><br>
+![CassPromGraf_23_Arch.jpg](https://github.com/sarma1807/Prometheus-Grafana-Cassandra/blob/main/Screenshots/JPGs/CassPromGraf_23_Arch.jpg) <br><br>
+![CassPromGraf_24_Arch.jpg](https://github.com/sarma1807/Prometheus-Grafana-Cassandra/blob/main/Screenshots/JPGs/CassPromGraf_24_Arch.jpg) <br><br>
 
 <br>
 
