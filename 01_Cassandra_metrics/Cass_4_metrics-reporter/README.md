@@ -1,3 +1,9 @@
+## This method only works if you are using :
+- Apache Cassandra 4.1.3 or below versions
+- DataStax Enterprise 6.8.x or below versions
+
+<br>
+
 # Apache Cassandra's metrics-reporter
 
 We will configure Cassandra's built in ` metrics-reporter ` to extract and publish Cassandra metrics to a local text file. <br>
