@@ -6,9 +6,7 @@
 
 use : ` Cass_4_metrics-reporter `
 
-```
 https://github.com/sarma1807/Prometheus-Grafana-Cassandra/tree/main/01_Cassandra_metrics/Cass_4_metrics-reporter
-```
 
 ---
 
@@ -21,9 +19,7 @@ https://github.com/sarma1807/Prometheus-Grafana-Cassandra/tree/main/01_Cassandra
 
 use : ` Cass_5_cass-prom-file-exporter `
 
-```
 https://github.com/sarma1807/Prometheus-Grafana-Cassandra/tree/main/01_Cassandra_metrics/Cass_5_cass-prom-file-exporter
-```
 
 ---
 
