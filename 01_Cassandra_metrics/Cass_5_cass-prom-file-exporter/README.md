@@ -12,7 +12,11 @@ We will download & configure a highly efficient and tiny agent written in Java.
 First identify your Java version and download the correct version of compiled jar :
 
 for Java 11 : 
-``` https://github.com/sarma1807/cass-prom-file-exporter/tree/main/build/libs/CassPromFileExporter-j11-all.jar ```
+```
+https://github.com/sarma1807/cass-prom-file-exporter/tree/main/build/libs/CassPromFileExporter-j11-all.jar
+```
 
 for Java 17 : 
-``` https://github.com/sarma1807/cass-prom-file-exporter/tree/main/build/libs/CassPromFileExporter-j17-all.jar ```
+```
+https://github.com/sarma1807/cass-prom-file-exporter/tree/main/build/libs/CassPromFileExporter-j17-all.jar
+```
