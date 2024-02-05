@@ -21,8 +21,8 @@ for Java 17 : ` CassPromFileExporter-j17-all.jar `
 ```
 mkdir ~/myLibs/
 cd    ~/myLibs/
-wget https://github.com/sarma1807/cass-prom-file-exporter/tree/main/build/libs/CassPromFileExporter-j11-all.jar
-wget https://github.com/sarma1807/cass-prom-file-exporter/tree/main/build/libs/CassPromFileExporter-j17-all.jar
+wget https://github.com/sarma1807/cass-prom-file-exporter/raw/main/build/libs/CassPromFileExporter-j11-all.jar
+wget https://github.com/sarma1807/cass-prom-file-exporter/raw/main/build/libs/CassPromFileExporter-j17-all.jar
 ```
 
 
