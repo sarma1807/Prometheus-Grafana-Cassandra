@@ -43,6 +43,15 @@ echo 'JVM_OPTS="$JVM_OPTS -javaagent:~/myLibs/CassPromFileExporter-j11-all.jar"'
 cat ~/conf/cassandra-env.sh | grep javaagent
 ```
 
+expected output :
+```
+$ cat ~/conf/cassandra-env.sh | grep javaagent
+# add the jamm javaagent
+JVM_OPTS="$JVM_OPTS -javaagent:$CASSANDRA_HOME/lib/jamm-0.4.0.jar"
+JVM_OPTS="$JVM_OPTS -javaagent:~/myLibs/CassPromFileExporter-j11-all.jar"
+$
+```
+
 <br>
 
 ### This configuration change is required on each of our Cassandra nodes.
