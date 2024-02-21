@@ -3,7 +3,7 @@
 ### https://github.com/Sarma1807/Prometheus-Grafana-Cassandra
 
 # Prometheus & Grafana for Cassandra
-# script version : v01_20240125 : Sarma Pydipally
+# script version : v02_20240221 : Sarma Pydipally
 
 #########################
 ### start - change following settings according to your environment
@@ -181,9 +181,18 @@ done
 ### generate : oramad_cass_up{cass_cluster_name="",data_center="",hostname_short=""} 1
 
 ### identify if Cassandra is UP or DOWN
-CASS_PROCESS_COUNT=`ps -ef | egrep -i "CassandraDaemon|dse.server" | grep -v "grep" | wc -l`
 if [[ "${CASS_PROCESS_COUNT}" -eq "0" ]]; then
   echo "oramad_cass_up{${COMMON_TAGS}} 0"  >> ${PROM_FILE}
+  cat ${PROM_FILE} > ${PROM_FILE_FINAL}
+  rm -f ${PROM_FILE}
+  rm -f ${NODE_INFO}
+  rm -f ${NODE_STATUS}
+  rm -f ${MR_OUTPUT_FILE_01}
+  rm -f ${MR_OUTPUT_FILE_02}
+  rm -f ${MR_OUTPUT_FILE_03}
+  rm -f ${MR_OUTPUT_FILE_04}
+  rm -f ${MR_OUTPUT_FILE_05}
+  echo "`date +'%d-%b-%Y %I:%M:%S %p'` : Script was executed with ERRORs." >> ${BASH_SOURCE}.log
   exit 1
 else
   echo "oramad_cass_up{${COMMON_TAGS}} 1"  >> ${PROM_FILE}
@@ -436,5 +445,7 @@ rm -f ${MR_OUTPUT_FILE_05}
 
 echo "`date +'%d-%b-%Y %I:%M:%S %p'` : Script was executed without ERRORs." >> ${BASH_SOURCE}.log
 
+#########################
+exit 0
 #########################
 
