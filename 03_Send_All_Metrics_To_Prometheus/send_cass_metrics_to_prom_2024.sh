@@ -19,7 +19,7 @@ BLACKLISTED_MOUNT_POINTS="tmpfs|boot|tools|home|tmp|usr|local|var"
 ### NO FURTHER CHANGES ARE REQUIRED IN THIS FILE
 #########################
 
-echo "`date +'%d-%b-%Y %I:%M:%S %p'` : Script started executing." > ${BASH_SOURCE}.log
+echo "`date +'%d-%b-%Y %I:%M:%S %p'` : Script started executing." >> ${BASH_SOURCE}.log
 
 source ~/.bash_profile > /dev/null ;
 
@@ -75,7 +75,7 @@ if [[ "${CASS_PROCESS_COUNT}" -gt "0" ]]; then
   fi
 else
   ### Cassandra is DOWN
-  echo "`date +'%d-%b-%Y %I:%M:%S %p'` : Cassandra was DOWN on this node. Script was executed with ERRORs." >> ${BASH_SOURCE}.log
+  echo "`date +'%d-%b-%Y %I:%M:%S %p'` : Cassandra was DOWN on this node." >> ${BASH_SOURCE}.log
 fi
 
 ##################################################
