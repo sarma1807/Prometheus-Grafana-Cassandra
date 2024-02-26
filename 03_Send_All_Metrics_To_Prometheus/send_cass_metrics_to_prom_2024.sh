@@ -3,7 +3,7 @@
 ### https://github.com/Sarma1807/Prometheus-Grafana-Cassandra
 
 # Prometheus & Grafana for Cassandra
-# script version : v02_20240221 : Sarma Pydipally
+# script version : v03_20240226 : Sarma Pydipally
 
 #########################
 ### start - change following settings according to your environment
@@ -327,9 +327,11 @@ cat ${MR_OUTPUT_FILE_01} | grep -v "^#" | egrep -i "${MR_OUTPUT_ROWPREFIX}keyspa
 
 cat ${MR_OUTPUT_FILE_01} | grep -v "^#" | egrep -i "${MR_OUTPUT_ROWPREFIX}Table_"         | egrep -i "TotalDiskSpaceUsed"                                                           >> ${MR_OUTPUT_FILE_02}
 
+cat ${MR_OUTPUT_FILE_01} | grep -v "^#" | egrep -i "${MR_OUTPUT_ROWPREFIX}Compaction_"    | egrep -i "TotalCompactionsCompleted|BytesCompacted|CompletedTasks|PendingTasks|CompactionsAborted|CompactionsReduced"  >> ${MR_OUTPUT_FILE_02}
+
 # select WANTED metrics and remove quantile metrics and write to MR_OUTPUT_FILE_02
-cat ${MR_OUTPUT_FILE_01} | grep -v "^#" | egrep -i "${MR_OUTPUT_ROWPREFIX}Table_"         | egrep -i "_ReadLatency|_RangeLatency|_WriteLatency"                              | egrep -v "{quantile=" >> ${MR_OUTPUT_FILE_02}
-cat ${MR_OUTPUT_FILE_01} | grep -v "^#" | egrep -i "${MR_OUTPUT_ROWPREFIX}Table_"         | egrep -i "CoordinatorReadLatency|CoordinatorWriteLatency|CoordinatorScanLatency" | egrep -v "{quantile=" >> ${MR_OUTPUT_FILE_02}
+cat ${MR_OUTPUT_FILE_01} | grep -v "^#" | egrep -i "${MR_OUTPUT_ROWPREFIX}Table_"         | egrep -i "_ReadLatency|_RangeLatency|_WriteLatency"                              | egrep -v "{quantile="  >> ${MR_OUTPUT_FILE_02}
+cat ${MR_OUTPUT_FILE_01} | grep -v "^#" | egrep -i "${MR_OUTPUT_ROWPREFIX}Table_"         | egrep -i "CoordinatorReadLatency|CoordinatorWriteLatency|CoordinatorScanLatency" | egrep -v "{quantile="  >> ${MR_OUTPUT_FILE_02}
 
 
 ### prom formatting
@@ -366,6 +368,13 @@ sed -i 's/oacm_Cache_Size_CounterCache/oramad_cass_CounterCache_used_bytes{~}/g'
 sed -i 's/oacm_Cache_Requests_CounterCache_total/oramad_cass_CounterCache_requests{~}/g'       ${MR_OUTPUT_FILE_02}
 sed -i 's/oacm_Cache_Hits_CounterCache_total/oramad_cass_CounterCache_hits{~}/g'               ${MR_OUTPUT_FILE_02}
 sed -i 's/oacm_Cache_Misses_CounterCache_total/oramad_cass_CounterCache_misses{~}/g'           ${MR_OUTPUT_FILE_02}
+
+sed -i 's/oacm_Compaction_TotalCompactionsCompleted_total/oramad_cass_compaction_total_completed{~}/g'   ${MR_OUTPUT_FILE_02}
+sed -i 's/oacm_Compaction_BytesCompacted/oramad_cass_compaction_bytes_compacted{~}/g'                    ${MR_OUTPUT_FILE_02}
+sed -i 's/oacm_Compaction_CompletedTasks/oramad_cass_compaction_tasks_completed{~}/g'                    ${MR_OUTPUT_FILE_02}
+sed -i 's/oacm_Compaction_PendingTasks/oramad_cass_compaction_tasks_pending{~}/g'                        ${MR_OUTPUT_FILE_02}
+sed -i 's/oacm_Compaction_CompactionsAborted/oramad_cass_compaction_aborted{~}/g'                        ${MR_OUTPUT_FILE_02}
+sed -i 's/oacm_Compaction_CompactionsReduced/oramad_cass_compaction_reduced{~}/g'                        ${MR_OUTPUT_FILE_02}
 
 sed -i 's/oacm_ClientRequest_Timeouts_/#oramad_cass_client_request_timeouts{~,timeout_type="/g'            ${MR_OUTPUT_FILE_02}
 egrep "^#oramad_cass_client_request_timeouts" ${MR_OUTPUT_FILE_02} > ${MR_OUTPUT_FILE_03}
