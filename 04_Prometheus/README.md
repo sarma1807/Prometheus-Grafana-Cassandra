@@ -24,7 +24,9 @@ ln -s ~/prometheus-2.25.1.linux-amd64 ~/prometheus-current
 
 ```
 $ vi ~/prometheus-current/prometheus.yml
-
+```
+add following lines at the end of file
+```
 # YAML files are sensitive about spaces/tabs - extra spaces/tabs can result in errors
 # add following entries at the end of file
   # my cassandra nodes - provide IPs for all nodes
