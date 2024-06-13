@@ -131,3 +131,9 @@ groups:
 
 ### This will require a restart of Prometheus
 
+<hr>
+
+use ` alertmanager.yml ` - if you are sending email notifications to a single team
+<br>
+use ` alertmanager.yml-MultipleTeams ` - if you are sending email notifications to multiple teams
+
