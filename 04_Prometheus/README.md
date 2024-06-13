@@ -76,7 +76,8 @@ http://<SERVER_IP_OR_HOSTNAME>:9090/targets
 
 ## extra/advanced configuration
 
-#### start Prometheus on a custom port during startup
+#### start Prometheus on a custom port during startup (default port :9090)
+
 ```
 --web.listen-address=":9696"
 ```
