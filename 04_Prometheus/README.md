@@ -44,8 +44,11 @@ Add entry to crontab ... to automatically start ` Prometheus ` along with server
 
 ```
 $ crontab -e
+```
 
-##### add following line
+##### add following line and adjust the config file path according to your environment
+
+```
 @reboot	cd ~/prometheus-current;~/prometheus-current/prometheus --config.file='/apps/opt/promgraf/prometheus-current/prometheus.yml' &
 ```
 
