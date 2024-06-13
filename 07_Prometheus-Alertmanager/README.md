@@ -134,6 +134,6 @@ groups:
 <hr>
 
 use ` alertmanager.yml ` - if you are sending email notifications to a single team
-<br>
+<br><br>
 use ` alertmanager.yml-MultipleTeams ` - if you are sending email notifications to multiple teams
 
