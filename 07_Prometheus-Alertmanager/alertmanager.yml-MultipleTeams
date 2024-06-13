@@ -1,0 +1,22 @@
+### multiple routes & receivers
+
+route:
+  receiver: 'email_to_first_dbateam'
+  routes:
+  - receiver: 'email_to_second_dbateam'
+    matchers:
+    - team="first_dbateam"
+  - receiver: 'email_to_first_dbateam'
+    matchers:
+    - team="second_dbateam"
+
+receivers:
+  - name: 'email_to_first_dbateam'
+    email_configs:
+    - to: 'first_dbateam@oramad.com'
+      send_resolved: true
+  - name: 'email_to_second_dbateam'
+    email_configs:
+    - to: 'second_dbateam@oramad.com, someother_dbateam@oramad.com'
+      send_resolved: true
+
