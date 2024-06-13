@@ -72,5 +72,12 @@ http://<SERVER_IP_OR_HOSTNAME>:9090/targets
 
 ### This configuration is required on only one server which will run Prometheus server.
 
-<br>
+<hr>
+
+## extra/advanced configuration
+
+#### start Prometheus on a custom port during startup
+```
+--web.listen-address=":9696"
+```
 
