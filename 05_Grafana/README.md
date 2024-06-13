@@ -41,8 +41,11 @@ Add entry to crontab ... to automatically start ` Grafana ` along with server st
 
 ```
 $ crontab -e
+```
 
-##### add following line
+##### add following line and adjust the file paths according to your environment
+
+```
 @reboot	~/grafana-current/bin/grafana-server -homepath ~/grafana-current -pidfile ~/grafana-current/logs/grafana-server.pid &
 ```
 
