@@ -28,14 +28,16 @@ wget https://github.com/sarma1807/cass-prom-file-exporter/raw/main/build/libs/Ca
 
 ## configure the jar file in ~/conf/cassandra-env.sh
 
+#### assumption : ~ = /apps/opt/cassandra
+
 for Java 11 :
 ```
-echo 'JVM_OPTS="$JVM_OPTS -javaagent:~/myLibs/CassPromFileExporter-j11-all.jar"' >> ~/conf/cassandra-env.sh
+echo 'JVM_OPTS="$JVM_OPTS -javaagent:/apps/opt/cassandra/myLibs/CassPromFileExporter-j11-all.jar"' >> ~/conf/cassandra-env.sh
 ```
 
 for Java 17 :
 ```
-echo 'JVM_OPTS="$JVM_OPTS -javaagent:~/myLibs/CassPromFileExporter-j17-all.jar"' >> ~/conf/cassandra-env.sh
+echo 'JVM_OPTS="$JVM_OPTS -javaagent:/apps/opt/cassandra/myLibs/CassPromFileExporter-j17-all.jar"' >> ~/conf/cassandra-env.sh
 ```
 
 ## verify
@@ -48,7 +50,7 @@ expected output :
 $ cat ~/conf/cassandra-env.sh | grep javaagent
 # add the jamm javaagent
 JVM_OPTS="$JVM_OPTS -javaagent:$CASSANDRA_HOME/lib/jamm-0.4.0.jar"
-JVM_OPTS="$JVM_OPTS -javaagent:~/myLibs/CassPromFileExporter-j17-all.jar"
+JVM_OPTS="$JVM_OPTS -javaagent:/apps/opt/cassandra/myLibs/CassPromFileExporter-j17-all.jar"
 $
 ```
 
