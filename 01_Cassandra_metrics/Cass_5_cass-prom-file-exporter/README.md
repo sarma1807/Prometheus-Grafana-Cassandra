@@ -35,7 +35,7 @@ echo 'JVM_OPTS="$JVM_OPTS -javaagent:~/myLibs/CassPromFileExporter-j11-all.jar"'
 
 for Java 17 :
 ```
-echo 'JVM_OPTS="$JVM_OPTS -javaagent:~/myLibs/CassPromFileExporter-j11-all.jar"' >> ~/conf/cassandra-env.sh
+echo 'JVM_OPTS="$JVM_OPTS -javaagent:~/myLibs/CassPromFileExporter-j17-all.jar"' >> ~/conf/cassandra-env.sh
 ```
 
 ## verify
@@ -48,7 +48,7 @@ expected output :
 $ cat ~/conf/cassandra-env.sh | grep javaagent
 # add the jamm javaagent
 JVM_OPTS="$JVM_OPTS -javaagent:$CASSANDRA_HOME/lib/jamm-0.4.0.jar"
-JVM_OPTS="$JVM_OPTS -javaagent:~/myLibs/CassPromFileExporter-j11-all.jar"
+JVM_OPTS="$JVM_OPTS -javaagent:~/myLibs/CassPromFileExporter-j17-all.jar"
 $
 ```
 
